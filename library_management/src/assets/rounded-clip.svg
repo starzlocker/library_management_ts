@@ -1,0 +1,15 @@
+<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="rounded-clip">
+      <path d="M 25,25
+               H 75
+               Q 80,25 80,30
+               V 70
+               Q 80,75 75,75
+               H 25
+               Q 20,75 20,70
+               V 30
+               Q 20,25 25,25 Z" />
+    </clipPath>
+  </defs>
+</svg>
