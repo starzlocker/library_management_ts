@@ -1,5 +1,7 @@
+import { Button } from "@/components/Button/Button";
 import type { Book } from "@/models/Book";
 import { useBookList } from "@/service/useBookList";
+import style from './BookCard.module.scss';
 
 type Props = {
   book: Book,
@@ -7,23 +9,24 @@ type Props = {
 
 export const BookCard = ({book}:Props) => {
   const {
-    getImageUrl,
     checkTextLength
   } = useBookList();
 
   return (
-    <div className='card' key={book.id}>
+    <div className={style['card']} key={book.id}>
       <img
         className='book-cover'
-        src={
-          book.cover_url
-            ? getImageUrl(book.cover_url)
-            : getImageUrl('nocover.jpg')
-        }
+        src={`/${book.cover_url}`}        
         alt={book.title}
       />
       <h3 title={book.title}>{checkTextLength(book.title)}</h3>
       <p>{checkTextLength(book.author)}</p>
+
+      <div className={style['book-actions']}>
+        <p>R$ {book.price}</p>
+        <Button onClick={() => {}} type="primary">Comprar</Button>
+      </div>
+
     </div>
   );
 };
