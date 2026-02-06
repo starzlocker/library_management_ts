@@ -1,0 +1,368 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./fonts/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 100 900;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-weight: 800;
+}
+
+p {
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+hr {
+  align-self: center;
+  height: 2px;
+  width: 80%;
+  margin-bottom: 8px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/*
+==================================
+H E A D E R
+==================================
+*/
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+
+  padding: 1rem;
+
+  .nav-title {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  img {
+    width: 40px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .searchbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 280px;
+    padding: 0.5rem;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 8px;
+    transition: 0.1s ease-in;
+
+    &:focus-within {
+      border: 1px solid rgb(144, 144, 144);
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: default;
+      width: 20px;
+
+      .magnifying-glass {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 505px) {
+  header {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: start;
+  }
+
+  input,
+  select {
+    font-size: 16px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  div.searchbar {
+    width: 100%;
+  }
+}
+
+/*
+==================================
+M A I N
+==================================
+*/
+
+main {
+  .books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .clip-plus {
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    margin: 8px;
+    clip-path: polygon(
+      25% 41.66%,
+      41.6% 41.66%,
+      41.66% 25%,
+      58.26% 25%,
+      58.26% 41.66%,
+      75% 41.66%,
+      75% 58.26%,
+      58.79% 58.26%,
+      58.79% 75%,
+      41.6% 75%,
+      41.6% 58.26%,
+      25% 58.26%
+    );
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 320px;
+    padding: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.101);
+    border-radius: 8px;
+    text-align: center;
+    text-transform: capitalize;
+    overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid rgba(0, 106, 255, 0.688);
+    }
+    .remove-btn {
+      position: absolute;
+      margin-left: -150px;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid #00000033;
+      background-color: #ff4242cc;
+      cursor: pointer;
+    }
+  }
+
+  .card-add {
+    background-color: rgba(203, 203, 203, 0.343);
+  }
+
+  .book-cover {
+    width: 160px;
+    height: 200px;
+    margin: 8px;
+    border-radius: 8px;
+  }
+
+  .remove-btn {
+    position: absolute;
+    margin-left: 150px;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  .addbook-btn {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .form-header {
+    display: grid;
+
+    .close-form-btn {
+      position: absolute;
+      justify-self: end;
+      margin-top: -8px;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 50%;
+      border: 1px solid rgb(184, 184, 184);
+      background-color: rgb(237, 237, 237);
+      cursor: pointer;
+    }
+  }
+
+  .form-dialog {
+    width: 400px;
+    margin: auto;
+    z-index: 2;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 8px;
+    transition: 0.3s;
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-add-btn {
+      padding: 0.5rem;
+      width: 140px;
+      height: 40px;
+      align-self: center;
+      background-color: rgb(239, 239, 239);
+      border: 1px solid rgb(228, 228, 228);
+      border-radius: 12px;
+      font-family: 'Open Sans', 'Arial', sans-serif;
+      font-weight: 700;
+    }
+
+    .form-field {
+      display: grid;
+      grid-template-columns: 100%;
+      height: 40px;
+      margin-bottom: 0.5rem;
+
+      input,
+      select {
+        border: 1px solid rgb(189, 189, 189);
+        border-radius: 12px;
+        padding: 6px;
+      }
+
+      input::placeholder {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+      }
+    }
+  }
+
+  @media screen and (max-width: 505px) {
+    .books-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+    }
+
+    .form-dialog {
+      width: 80%;
+
+      .close-form-btn {
+        justify-self: end;
+        width: 30px;
+        height: 30px;
+      }
+
+      .form-field {
+        grid-template-columns: 100%;
+        height: 40px;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .card.card-add {
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      grid-template-columns: 160px 1fr;
+      grid-template-rows: auto;
+      width: 100%;
+      height: 150px;
+
+      .clip-plus {
+        height: 100%;
+        aspect-ratio: 1/1;
+        margin: 0;
+      }
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      grid-template-rows: 2fr 3fr 1fr;
+      width: 100%;
+      height: 150px;
+
+      .book-cover {
+        height: 100%;
+        grid-row: 1/ 4;
+        grid-column: 1;
+        object-fit: cover;
+      }
+
+      h3 {
+        grid-row: 1/2;
+        grid-column: 2;
+      }
+
+      p {
+        grid-row: 2/3;
+        grid-column: 2;
+        align-self: start;
+      }
+
+      .remove-btn {
+        position: static;
+        justify-self: end;
+        /* grid-row: 3/3; */
+        grid-row: 3 / 4;
+        grid-column: 2;
+
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

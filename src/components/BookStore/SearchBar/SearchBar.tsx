@@ -14,7 +14,7 @@ export const SearchBar = ({ searchTerm, setSearchTerm }:Props) => {
         onChange={(e) => setSearchTerm(e.target.value)}
       ></input>
       <button type="submit">
-        TODO: ICONE LUPA
+        🔎
       </button>
     </div>
   );

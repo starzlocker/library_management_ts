@@ -8,5 +8,6 @@ export const BookSchema = z.object({
   year: z.number(),
   genre: z.string(),
   cover_url: z.string(),
+  price: z.number(),
   id: z.number()
 })

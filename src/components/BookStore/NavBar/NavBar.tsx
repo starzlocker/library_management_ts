@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import library from '../../assets/library.svg';
+import library from '@/assets/library.svg';
 
 type Props = {
   children?: ReactNode
