@@ -1,11 +1,11 @@
 import type { Book } from "@/models/Book";
 import { useState } from "react";
 
-type Props = {
-  addBook: (book: Book) => void
-}
+// type Props = {
+//   addBook: (book: Book) => void
+// }
 
-export const AddBookModal = ({ addBook }:Props) => {
+export const AddBookModal = () => {
 	const date = new Date();
 	const year = date.getFullYear();
 	const [book, setBook] = useState({
@@ -15,6 +15,11 @@ export const AddBookModal = ({ addBook }:Props) => {
 		genre: '',
 		cover_url: '',
 	});
+
+  const addBook = (book: Book) => {
+    console.log(book);
+    return null;
+  }
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
