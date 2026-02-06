@@ -1,16 +1,15 @@
-import { useBooks } from '@/hooks/useBooks';
 import { BookCard } from '../BookCard/BookCard';
+import type { Book } from '@/models/Book';
 
+type Props = {
+  books: Book[],
+  isLoading: boolean,
+  isError: boolean,
+  error: string | null
+}
 
-export const BookList = () => {
-
-  const {
-    books,
-    isLoading,
-    isError,
-    error
-  } = useBooks();
-
+export const BookList = ({books, isLoading, isError, error}:Props) => {
+  
   if (isLoading) {
     return <div>Fetching books</div>
   }
@@ -28,9 +27,7 @@ export const BookList = () => {
   return (
     <div className='books-container'>
       {books.map((book) => (
-        <div key={book.id}>
-          <BookCard book={book}/>
-        </div>
+        <BookCard key={book.id} book={book}/>
       ))}
     </div>
   );
