@@ -1,6 +1,6 @@
 import { useLocalStorage } from "./useLocalStorage";
 import { useContext } from "react";
-import { CartContext, type ShoppingCartItem } from "@/context/CartContext";
+import { CartContext } from "@/context/CartContext";
 import type { Book } from "@/models/Book";
 
 const SHOPPING_CART = 'shoppingCart'
@@ -23,37 +23,38 @@ export const useCart = () => {
   } = ctx;
 
   function addItemsToCart(items: Book | Book[]):void {
-    const booksToAdd = (Array.isArray(items) ? items : [items]).map(item => ({[item.id.toString()]: item}));
+    const booksToAdd = (Array.isArray(items) ? items : [items]);
 
-    const currentBooks = {...shoppingCart};
-    for(const [k, v] of Object.entries(booksToAdd)) {
-
-
-      if(k in currentBooks) {
-         currentBooks[k].quantity += 1;
+    const newBookMap = {...shoppingCart};
+    for(const book of booksToAdd) {
+      if(book.id in newBookMap) { 
+         newBookMap[book.id].quantity += 1;
       } else {
-        currentBooks[book.id] = {...book, quantity: 1};
+        newBookMap[book.id] = {...book, quantity: 1};
       }
     }
 
-    setShoppingCart(prev => {
-      writeData(SHOPPING_CART, {...shoppingCart, ...books}, true);
-      return [...prev, ...books];
+    setShoppingCart(() => {
+      writeData(SHOPPING_CART, newBookMap, true);
+      return newBookMap;
     })
   }
   
   const removeItemFromCart = (id:number) => {
-    const filtered = shoppingCart.filter(b => b.id !== id)
+    const newBookMap = {...shoppingCart};
+
+    delete newBookMap[id];
+    
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, filtered);
-      return filtered
+      writeData(SHOPPING_CART, newBookMap, true);
+      return newBookMap
     })
 
   }
 
   const clearCart = () => {
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, [])
+      writeData(SHOPPING_CART, {})
       return [];
     })
   }

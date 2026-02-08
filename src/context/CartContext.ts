@@ -5,9 +5,8 @@ export interface ShoppingCartItem extends Book {
   quantity: number
 }
 
-type ShoppingCart = {
-  [id: number]: ShoppingCartItem
-}
+export type ShoppingCart = Record<number, ShoppingCartItem>
+
 
 type CartContext = {
   shoppingCart: ShoppingCart,
