@@ -2,6 +2,7 @@ import { Button } from "@/components/Button/Button";
 import type { Book } from "@/models/Book";
 import { useBookList } from "@/service/useBookList";
 import style from './BookCard.module.scss';
+import { useCart } from "@/hooks/useCart";
 
 type Props = {
   book: Book,
@@ -11,6 +12,10 @@ export const BookCard = ({book}:Props) => {
   const {
     checkTextLength
   } = useBookList();
+
+  const {
+    addItemsToCart
+  } = useCart()
 
   return (
     <div className={style['card']} key={book.id}>
@@ -24,7 +29,7 @@ export const BookCard = ({book}:Props) => {
 
       <div className={style['book-actions']}>
         <p>R$ {book.price}</p>
-        <Button onClick={() => {}} type="primary">Comprar</Button>
+        <Button onClick={() => addItemsToCart(book)} kind="primary">Comprar</Button>
       </div>
 
     </div>
