@@ -114,3 +114,11 @@
     }
   }
 }
+
+
+.add_book_button:active {
+  background-color: greenyellow !important; 
+  transition: background-color .1s;
+  color: black;
+  font-weight: bold;
+}

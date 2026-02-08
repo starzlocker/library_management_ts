@@ -35,7 +35,7 @@ export const useCart = () => {
     }
 
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, newBookMap, true);
+      writeData(SHOPPING_CART, newBookMap);
       return newBookMap;
     })
   }
@@ -46,7 +46,7 @@ export const useCart = () => {
     delete newBookMap[id];
     
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, newBookMap, true);
+      writeData(SHOPPING_CART, newBookMap);
       return newBookMap
     })
 

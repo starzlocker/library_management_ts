@@ -29,7 +29,7 @@ export const BookCard = ({book}:Props) => {
 
       <div className={style['book-actions']}>
         <p>R$ {book.price}</p>
-        <Button onClick={() => addItemsToCart(book)} kind="primary">Comprar</Button>
+        <Button onClick={() => addItemsToCart(book)} kind="primary" className={style['add_book_button']}>Comprar</Button>
       </div>
 
     </div>

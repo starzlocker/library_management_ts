@@ -1,15 +1,15 @@
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode, type ComponentPropsWithoutRef  } from 'react';
 import styles from './Modal.module.scss';
 import { CloseIcon } from '../CloseIcon';
 
-type Props = {
+interface ModalProps extends ComponentPropsWithoutRef<'dialog'> {
   children?: ReactNode,
   isOpen: boolean,
   title?: string,
-  beforeClose?: () => void
+  beforeClose?: () => void,
 }
 
-export const Modal = ({children, isOpen, title, beforeClose=(() => {})}:Props) => {
+export const Modal = ({children, isOpen, title, beforeClose=(() => {}), className, ...props}:ModalProps) => {
   const ref = useRef<HTMLDialogElement|null>(null)
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export const Modal = ({children, isOpen, title, beforeClose=(() => {})}:Props) =
   }
 
   return (
-    <dialog ref={ref} className={styles['modal']}>
-      <section className="form-header">
+    <dialog ref={ref} className={`${styles['modal']} ${className || ''}`} {...props}>
+      <section className={styles['modal-header']}>
         <h2>{title}</h2>
         <button
           onClick={handleClose}
@@ -36,9 +36,8 @@ export const Modal = ({children, isOpen, title, beforeClose=(() => {})}:Props) =
         </button>
       </section>
       <hr></hr>
-      <section>
-        {children}
-      </section>
+
+      {children}
     </dialog>
   )
 }

@@ -9,10 +9,10 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   kind: 'primary' | 'secondary' | 'danger' | 'ghost',
 }
 
-export const Button = ({children, onClick, kind, ...props}:ButtonProps) => {
+export const Button = ({children, onClick, kind, className, ...props}:ButtonProps) => {
 
   return (
-    <button type="button" onClick={onClick} className={`${styles[kind]}`} {...props}>
+    <button type="button" onClick={onClick} className={`${styles[kind]} ${className || ''}`} {...props}>
       {children}
     </button>
   )

@@ -13,11 +13,8 @@ export const CartContextProvider = ({children}:Props) => {
   const {getData} = useLocalStorage();
 
   const initialData = (
-    getData<ShoppingCartItem[]>(SHOPPING_CART, true) || []
-  ).reduce<Record<string, ShoppingCartItem>>((acc, item) => {
-    acc[item.id.toString()] = item;
-    return acc;
-  }, {});
+    getData<ShoppingCartItem[]>(SHOPPING_CART) || {}
+  );
 
   const [shoppingCart, setShoppingCart] = useState<ShoppingCart>(initialData);
   const [isOpen, setIsOpen] = useState(false);

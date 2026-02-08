@@ -1,0 +1,20 @@
+.cart-modal-list {
+  padding: 1rem;
+}
+
+.cart-modal-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: .5rem;
+}
+
+.cart-modal-total {
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.cart-modal-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
