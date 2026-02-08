@@ -3,10 +3,8 @@
   flex-direction: column;
   align-items: center;
   width: 200px;
-  height: 320px;
+  height: 340px;
   padding: 8px;
-  border: 2px solid rgba(0, 0, 0, 0.101);
-  border-radius: 8px;
   text-align: center;
   text-transform: capitalize;
   overflow: hidden;
@@ -14,7 +12,7 @@
   cursor: pointer;
 
   &:hover {
-    border: 2px solid rgba(0, 106, 255, 0.688);
+    background-color: rgb(240, 240, 240);
   }
   .remove-btn {
     position: absolute;
@@ -41,10 +39,9 @@
   }
 
   .book-cover {
-    width: 160px;
-    height: 200px;
+    width: 184px;
+    height: 230px;
     margin: 8px;
-    border-radius: 8px;
   }
 
   .remove-btn {
@@ -108,7 +105,6 @@
       .remove-btn {
         position: static;
         justify-self: end;
-        /* grid-row: 3/3; */
         grid-row: 3 / 4;
         grid-column: 2;
 

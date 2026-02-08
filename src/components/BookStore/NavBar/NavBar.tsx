@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react';
-import library from '@/assets/library.svg';
+import styles from './NavBar.module.scss'
+import { BookShelfIcon } from '@/components/BookShelfIcon';
 
 type Props = {
   children?: ReactNode
@@ -7,10 +8,10 @@ type Props = {
 
 export const NavBar = ({ children }:Props) => {
   return (
-    <header>
-      <div className="nav-title">
-        <img src={library} alt='Livros empilhados'/>
-        <h1 className="text-3x1">Library Model</h1>
+    <header className={styles['navbar-container']}>
+      <div className={styles['nav-title']}>
+        <BookShelfIcon size='42px'/>
+        <h1>the bookshelf</h1>
       </div>
       <nav>
         {children}

@@ -15,8 +15,8 @@ export const BookCard = ({book}:Props) => {
   return (
     <div className={style['card']} key={book.id}>
       <img
-        className='book-cover'
-        src={`/${book.cover_url}`}        
+        className={style['book-cover']}
+        src={`/images/${book.cover_url}`}        
         alt={book.title}
       />
       <h3 title={book.title}>{checkTextLength(book.title)}</h3>
