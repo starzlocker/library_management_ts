@@ -1,11 +1,12 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import styles from './Modal.module.scss';
+import { CloseIcon } from '../CloseIcon';
 
 type Props = {
-  children: ReactNode,
+  children?: ReactNode,
   isOpen: boolean,
-  title: string,
-  beforeClose: () => void
+  title?: string,
+  beforeClose?: () => void
 }
 
 export const Modal = ({children, isOpen, title, beforeClose=(() => {})}:Props) => {
@@ -29,9 +30,9 @@ export const Modal = ({children, isOpen, title, beforeClose=(() => {})}:Props) =
         <h2>{title}</h2>
         <button
           onClick={handleClose}
-          className="close-form-btn"
+          className={styles['modal-close-btn']}
         >
-          X
+          <CloseIcon size={'12px'}/>
         </button>
       </section>
       <hr></hr>
