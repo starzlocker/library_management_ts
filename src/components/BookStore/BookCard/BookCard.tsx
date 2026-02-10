@@ -3,7 +3,7 @@ import type { Book } from "@/models/Book";
 import { useBookList } from "@/service/useBookList";
 import style from './BookCard.module.scss';
 import { useCart } from "@/hooks/useCart";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   book: Book,
@@ -45,7 +45,7 @@ export const BookCard = ({book}:Props) => {
         <Button onClick={() => {
           addItemsToCart(book)
           setActive(true)
-        }} kind="primary" className={`${style['add_book_button']} ${active ? style['active'] : ''}`}>Comprar</Button>
+        }} kind="primary" className={`${style['addbook-btn']} ${active ? style['active'] : ''}`}>Comprar</Button>
       </div>
 
     </div>

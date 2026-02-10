@@ -14,7 +14,8 @@ export const CartButton = () => {
   const totalItems = useMemo(
     () =>
       Object.values(shoppingCart).reduce(
-        (acc, book) => acc += book.quantity, 0,
+        (acc, book) => (acc += book.amount),
+        0,
       ),
     [shoppingCart],
   );

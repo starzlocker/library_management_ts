@@ -1,0 +1,40 @@
+@import '@/global_styles/colors.scss';
+@import '@/global_styles/motion.scss';
+
+.cart-modal-list {
+  padding: 1rem;
+}
+
+.cart-modal-item {
+  display: flex;
+  align-items: start;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid $border-strong-01;
+  padding: 8px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+
+
+
+.cover {
+    width: 50px;
+    height: 64px;
+}
+
+.cart-modal-total {
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.cart-modal-container {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}

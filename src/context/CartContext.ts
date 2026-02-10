@@ -2,7 +2,7 @@ import { type Book } from "@/models/Book";
 import { createContext, type Dispatch, type SetStateAction } from "react";
 
 export interface ShoppingCartItem extends Book {
-  quantity: number
+  amount: number
 }
 
 export type ShoppingCart = Record<number, ShoppingCartItem>
