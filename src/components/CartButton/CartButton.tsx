@@ -1,0 +1,34 @@
+import { Button } from '@/components/Button/Button';
+import { CartIcon } from '../CartIcon';
+import { useCart } from '@/hooks/useCart';
+import { useMemo } from 'react';
+import style from './CartButton.module.scss';
+
+export const CartButton = () => {
+  const { setIsOpen, shoppingCart } = useCart();
+
+  const openCartList = () => {
+    setIsOpen(true);
+  };
+
+  const totalItems = useMemo(
+    () =>
+      Object.values(shoppingCart).reduce(
+        (acc, book) => acc += book.quantity, 0,
+      ),
+    [shoppingCart],
+  );
+
+  return (
+    <div className={style['cart-button-container']}>
+      <Button kind='ghost' onClick={openCartList}>
+        <CartIcon color='black' />
+      </Button>
+      <div
+        className={`${style['cart-button-total']} ${totalItems > 0 ? style['active'] : style['inactive']}`}
+      >
+        {totalItems > 99 ? '99+' : totalItems}
+      </div>
+    </div>
+  );
+};

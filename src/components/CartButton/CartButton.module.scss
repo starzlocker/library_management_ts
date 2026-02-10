@@ -1,0 +1,29 @@
+.cart-button-container {
+  position: relative;
+}
+
+.cart-button-total {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0px;
+  right: -8px;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  z-index: 2;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.cart-button-total.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-button-total.inactive {
+  display: none;
+}
