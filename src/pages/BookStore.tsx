@@ -1,7 +1,7 @@
 // import { AddBookModal } from "@/components/BookStore/AddBookModal/AddBookModal"
 import { BookDetailsModal } from '@/components/BookStore/BookDetailsModal/BookDetailsModal';
 import { BookList } from '@/components/BookStore/BookList/BookList';
-import { CartModal } from '@/components/BookStore/Cart/CartModal';
+import { CartModal } from '@/components/BookStore/CartModal/CartModal';
 import { NavBar } from '@/components/BookStore/NavBar/NavBar';
 import { SearchBar } from '@/components/BookStore/SearchBar/SearchBar';
 import { CartButton } from '@/components/CartButton/CartButton';

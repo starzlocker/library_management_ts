@@ -1,3 +1,6 @@
+@import '@/global_styles/colors.scss';
+@import '@/global_styles/motion.scss';
+
 button {
     width: auto;
     height: auto;
@@ -6,44 +9,45 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color .3s ease-in;
+    transition: background-color .3s $standard_expressive;
 }
 
 button.primary:hover {
-  background-color: #2b73f9;
+  background-color: $button-primary-hover;
 }
 
 button.secondary:hover {
-  background-color: #8f8f8f;
+  background-color: $button-secondary-hover;
 }
 
 button.danger:hover {
-  background-color: #dc353d;
+  background-color: $button-danger-hover;
 }
 
 button.primary:active {
-  background-color: #5b8eec;
-  border: none 1px 1px none solid #3a61a9;
+  background-color: $button-primary-active;
+  border: none 1px 1px none solid $border-interactive;
 }
 
 button.secondary:active {
-  background-color: #878787;
+  background-color: $button-secondary-active;
+
 }
 
 button.danger:active {
-  background-color: #af555a;
+  background-color: $button-danger-active;
 }
 
 .primary {
-  background-color: #0f62fe;
+  background-color: $button-primary;
 }
 
 .secondary {
-  background-color: #6f6f6f;
+  background-color: $button-secondary;
 }
 
 .danger {
-  background-color: #da1e28;
+  background-color: $button-danger-primary;
 }
 
 .ghost {
