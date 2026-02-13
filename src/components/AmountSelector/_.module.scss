@@ -24,8 +24,12 @@
 
 .add-button {
   color: $button-primary;
+  display: flex;
+  align-items: center;
 }
 
 .remove-button {
   color: $button-danger-primary;
+  display: flex;
+  align-items: center;
 }
