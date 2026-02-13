@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef } from "react";
 
-interface AddIconProps extends ComponentPropsWithoutRef<'svg'> {
+interface MinusIconProps extends ComponentPropsWithoutRef<'svg'> {
   size?: number | string; 
 }
 
-export const AddIcon = ({size='24px', color="#0F0F0F", ...props}:AddIconProps) => {
+export const MinusIcon = ({size='24px', color="#0F0F0F", ...props}:MinusIconProps) => {
   return (
     <svg
       viewBox="0 0 24 24"      
@@ -15,7 +15,7 @@ export const AddIcon = ({size='24px', color="#0F0F0F", ...props}:AddIconProps) =
       {...props}
     >
       <path
-        d="M13 3a1 1 0 10-2 0v8H3a1 1 0 100 2h8v8a1 1 0 102 0v-8h8a1 1 0 100-2h-8V3z"
+        d="M2 12a1 1 0 011-1h18a1 1 0 110 2H3a1 1 0 01-1-1z"
         fill={color}
       />
     </svg>

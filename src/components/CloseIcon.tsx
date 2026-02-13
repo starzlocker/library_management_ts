@@ -1,26 +1,22 @@
-import { type ComponentPropsWithoutRef } from 'react';
-
+import type { ComponentPropsWithoutRef } from "react";
 
 interface CloseIconProps extends ComponentPropsWithoutRef<'svg'> {
   size?: number | string; 
 }
 
-
-export const CloseIcon = ({size='24px', ...props}:CloseIconProps) => {
+export const CloseIcon = ({size='24px', color="#0F0F0F", ...props}:CloseIconProps) => {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 24 24"      
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={size}   
       height={size}  
-      {...props}    
+      {...props}
     >
       <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M5.293 5.293a1 1 0 011.414 0L12 10.586l5.293-5.293a1 1 0 111.414 1.414L13.414 12l5.293 5.293a1 1 0 01-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 01-1.414-1.414L10.586 12 5.293 6.707a1 1 0 010-1.414z"
-        fill="#0F1729"
+        d="M20.746 3.329a1 1 0 00-1.415 0l-7.294 7.294-7.294-7.294a1 1 0 10-1.414 1.414l7.294 7.294-7.294 7.294a1 1 0 001.414 1.415l7.294-7.295 7.294 7.295a1 1 0 001.415-1.415l-7.295-7.294 7.295-7.294a1 1 0 000-1.414z"
+        fill={color}
       />
     </svg>
   )
