@@ -35,7 +35,6 @@ export const Modal = ({children, isOpen, title, beforeClose=(() => {}), classNam
           <CloseIcon size={'12px'}/>
         </button>
       </section>
-      <hr></hr>
 
       {children}
     </dialog>
