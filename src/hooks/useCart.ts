@@ -19,31 +19,42 @@ export const useCart = () => {
   function addItemsToCart(items: Book | Book[]): void {
     const booksToAdd = Array.isArray(items) ? items : [items];
 
-    const newBookMap = { ...shoppingCart };
+    const newShoppingCart = { ...shoppingCart };
     for (const book of booksToAdd) {
-      if (book.id in newBookMap) {
-        newBookMap[book.id].amount += 1;
+      if (book.id in newShoppingCart) {
+        if(newShoppingCart[book.id].amount < 100) newShoppingCart[book.id].amount += 1;
       } else {
-        newBookMap[book.id] = { ...book, amount: 1 };
+        newShoppingCart[book.id] = { ...book, amount: 1 };
       }
     }
 
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, newBookMap);
-      return newBookMap;
+      writeData(SHOPPING_CART, newShoppingCart);
+      return newShoppingCart;
     });
   }
 
   const removeItemFromCart = (id: number) => {
-    const newBookMap = { ...shoppingCart };
+    const newShoppingCart = { ...shoppingCart };
 
-    delete newBookMap[id];
+    delete newShoppingCart[id];
 
     setShoppingCart(() => {
-      writeData(SHOPPING_CART, newBookMap);
-      return newBookMap;
+      writeData(SHOPPING_CART, newShoppingCart);
+      return newShoppingCart;
     });
   };
+
+  const decrementItem = (id: number) => {
+    const newShoppingCart = { ...shoppingCart };
+    newShoppingCart[id].amount -= 1 
+    if (!newShoppingCart[id].amount) return removeItemFromCart(id);
+
+    setShoppingCart(() => {
+      writeData(SHOPPING_CART, newShoppingCart);
+      return newShoppingCart;
+    });
+  }
 
   const clearCart = () => {
     setShoppingCart(() => {
@@ -58,6 +69,7 @@ export const useCart = () => {
     setIsOpen,
     addItemsToCart,
     removeItemFromCart,
+    decrementItem,
     clearCart,
   };
 };
