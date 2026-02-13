@@ -1,10 +1,10 @@
 // import { AddBookModal } from "@/components/BookStore/AddBookModal/AddBookModal"
-import { BookDetailsModal } from '@/components/BookStore/BookDetailsModal/BookDetailsModal';
-import { BookList } from '@/components/BookStore/BookList/BookList';
-import { CartModal } from '@/components/BookStore/CartModal/CartModal';
-import { NavBar } from '@/components/BookStore/NavBar/NavBar';
-import { SearchBar } from '@/components/BookStore/SearchBar/SearchBar';
-import { CartButton } from '@/components/CartButton/CartButton';
+import { BookDetailsModal } from '@/components/BookStorePage/BookDetailsModal/BookDetailsModal';
+import { BookList } from '@/components/BookStorePage/BookList/BookList';
+import { CartModal } from '@/components/BookStorePage/CartModal/CartModal';
+import { NavBar } from '@/components/BookStorePage/NavBar/NavBar';
+import { SearchBar } from '@/components/BookStorePage/SearchBar/SearchBar';
+import { CartButton } from '@/components/BookStorePage/CartButton/CartButton';
 import { CartContextProvider } from '@/context/CartContextProvider';
 import { useBooks } from '@/hooks/useBooks';
 import { useMemo, useState } from 'react';

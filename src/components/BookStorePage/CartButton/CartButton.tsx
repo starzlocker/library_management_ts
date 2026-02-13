@@ -1,5 +1,5 @@
-import { Button } from '@/components/Button/Button';
-import { CartIcon } from '../CartIcon';
+import { Button } from '@/components/misc/Button/Button';
+import { CartIcon } from '@/components/misc/CartIcon';
 import { useCart } from '@/hooks/useCart';
 import { useMemo } from 'react';
 import style from './CartButton.module.scss';

@@ -1,5 +1,6 @@
 import { BookCard } from '../BookCard/BookCard';
 import type { Book } from '@/models/Book';
+import styles from './_.module.scss'
 
 type Props = {
   books: Book[],
@@ -25,7 +26,7 @@ export const BookList = ({books, isLoading, isError, error}:Props) => {
   }
 
   return (
-    <div className='books-container'>
+    <div className={styles['books-container']}>
       {books.map((book) => (
         <BookCard key={book.id} book={book}/>
       ))}

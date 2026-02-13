@@ -1,5 +1,5 @@
 import { useRef, useState, type Dispatch, type SetStateAction } from "react";
-import { SearchIcon } from "@/components/SearchIcon";
+import { SearchIcon } from "@/components/misc/SearchIcon";
 import styles from './SearchBar.module.scss'
 
 type Props = {
