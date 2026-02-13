@@ -22,7 +22,7 @@ export const CartModal = () => {
       title='Carrinho de Compras'
       beforeClose={() => setIsOpen(false)}
     >
-      <section className={  }>
+      <section className={styles['cart-modal-container']}>
         <ul className={styles['cart-modal-list']}>
           {Object.values(shoppingCart).map((book) => (
             <li key={book.id} className={styles['cart-modal-item']}>
