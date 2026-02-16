@@ -12,9 +12,11 @@
   padding: 8px;
   width: 100%;
 }
-@media screen and (max-width: 505px) {
+@media screen and (max-width: 650px) {
   .books-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    align-items: center;
+    justify-content: space-around;
   }
 }

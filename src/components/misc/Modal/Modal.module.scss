@@ -1,7 +1,6 @@
 @use '@/global_styles/colors' as colors;
 
   .modal {
-    min-width: 400px;
     margin: auto;
     z-index: 1000;
     padding: 1rem 1rem 1rem 1rem;
@@ -9,6 +8,13 @@
     border-radius: 8px;
     transition: 0.3s;
     animation: pop-in .1s ease-out;
+  }
+
+  @media screen and (max-width: 500px) {
+    .modal {
+      width: 100%;
+    }
+    
   }
 
   .modal-close-btn {

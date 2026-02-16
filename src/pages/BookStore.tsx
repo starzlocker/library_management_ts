@@ -9,7 +9,7 @@ import { CartContextProvider } from '@/context/CartContextProvider';
 import { useBooks } from '@/hooks/useBooks';
 import { useMemo, useState } from 'react';
 import { Carousel } from '@/components/BookStorePage/Carousel/Carousel';
-import { BookListHeading } from '@/components/misc/BookListHeading';
+import { BookListHeading } from '@/components/misc/BookListHeading/BookListHeading';
 import type { Book } from '@/models/Book';
 
 export const BookStore = () => {

@@ -1,22 +1,21 @@
-@import '@/global_styles/colors.scss';
-@import '@/global_styles/motion.scss';
+@use '@/global_styles/colors.scss' as colors;
+@use '@/global_styles/motion.scss' as motion;
 
 .cart-modal-list {
   height: 400px;
   overflow: auto;
   margin-bottom: 1rem;
-  border-bottom: 2px solid $border-strong-01;
-  border-top: 2px solid $border-strong-01;
+  border-bottom: 2px solid colors.$border-strong-01;
+  border-top: 2px solid colors.$border-strong-01;
 }
 
 .cart-modal-item {
   display: flex;
   align-items: start;
-  gap: .5rem;
-  margin-bottom: .5rem;
-  border-bottom: 1px solid $border-strong-01;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid colors.$border-strong-01;
   padding: 8px;
-
 }
 
 .book-info {
@@ -45,15 +44,14 @@
 }
 
 .cover {
-    width: 70px;
-    height: 89.6px;
+  width: 70px;
+  height: 89.6px;
 }
 
 .cart-modal-total {
   margin-left: auto;
   margin-top: auto;
 }
-
 
 .cart-modal-container {
   width: 450px;

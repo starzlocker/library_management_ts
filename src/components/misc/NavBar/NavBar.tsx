@@ -18,7 +18,7 @@ export const NavBar = ({ children }:Props) => {
           {children}
         </nav>
       </div>
-      <div style={{marginBottom: '70px'}} />
+      <div className={styles['spacer']} />
     </>
   );
 };

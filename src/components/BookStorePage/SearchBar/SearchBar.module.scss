@@ -1,12 +1,11 @@
 .searchbar {
   box-sizing: border-box;
+  position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
   height: 42px;
-  padding: 0 0.5rem;
   transition: 0.1s ease-in;
-
 
   &.active:focus-within {
     border-bottom: 1px solid rgb(144, 144, 144);
@@ -19,28 +18,53 @@
     height: 100%;
   }
 
+  input:disabled {
+    background-color: transparent;
+    border: none;
+  }
+
+
   button {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    width: 20px;
+    width: auto;
 
-    .magnifying-glass {
-      width: 20px;
-      height: 20px;
-    }
   }
 }
-
 
 .active {
   width: 280px;
   border-bottom: 1px solid rgb(201, 201, 201);
-
 }
 
 .inactive {
   width: 42px;
   border-bottom: 1px solid rgba(201, 201, 201, 0);
 
+}
+
+.inactive input {
+  pointer-events: none;
+  user-select: none;
+}
+
+@media screen and (max-width:650px) {
+  .searchbar {
+    display: grid;
+    grid-template-columns: 30px;
+    grid-template-rows: 1fr;
+
+  }
+
+  #searchbar-icon {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  #searchbar-input {
+    grid-column: 2/-1;
+    grid-row: 1/2;
+    width: 100%;
+  }
 }

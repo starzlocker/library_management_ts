@@ -1,39 +1,51 @@
-import { useRef, useState, type Dispatch, type SetStateAction } from "react";
-import { SearchIcon } from "@/components/misc/SearchIcon";
-import styles from './SearchBar.module.scss'
+import { useRef, useState, type Dispatch, type SetStateAction } from 'react';
+import { SearchIcon } from '@/components/misc/SearchIcon';
+import { Button } from '@/components/misc/Button/Button';
+import styles from './SearchBar.module.scss';
+import { CloseIcon } from '@/components/misc/CloseIcon';
 
 type Props = {
-  searchTerm: string,
-  setSearchTerm: Dispatch<SetStateAction<string>>
-}
+  searchTerm: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+};
 
-export const SearchBar = ({ searchTerm, setSearchTerm }:Props) => {
+export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
   const [active, setActive] = useState(false);
-  const ref = useRef<HTMLInputElement|null>(null);
+  const ref = useRef<HTMLInputElement | null>(null);
 
   return (
-    <div id='searchbar-container' className={`${styles['searchbar']} ${active ? styles['active'] : styles['inactive']}`}>
+    <div
+      className={`${styles['searchbar']} ${active ? styles['active'] : styles['inactive']}`}
+    >
       <input
-        id="searchbar-input"
-        type="text"
+        id={styles['searchbar-input']}
+        type='text'
         ref={ref}
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        onBlur={() => {
-          if(!searchTerm) {
-            ref.current?.blur()
-            setActive(false)
+        onBlur={(e) => {
+          if ((!e.currentTarget.contains(e.relatedTarget) && !searchTerm)) {
+            setActive(false);
+            ref.current?.blur();
           }
         }}
       ></input>
-      <button id='searchbar-icon' onClick={() => {
-        if (!active && ref.current) {
-          ref.current.focus()
-          setActive(prev => !prev)
-        }
-      }}>
-        <SearchIcon size="20px"/>
+      <button
+        id={styles['searchbar-icon']}
+        onClick={() => {
+          if (!active && ref.current) {
+            setActive((prev) => !prev);
+            ref.current.focus();
+          }
+          else if (active && searchTerm) {
+            setSearchTerm('');
+            setActive(false);
+          }
+        }}
+      >
+        {searchTerm ? <CloseIcon size={16}/> : <SearchIcon size='20px' />}
       </button>
+
     </div>
   );
 };

@@ -25,14 +25,14 @@ export const BookCard = ({ book, onClick }: Props) => {
   }, [active]);
 
   return (
-    <button className={style['card']} key={book.id} onClick={onClick}>
-      <img
-        className={style['book-cover']}
-        src={`/images/${book.cover_url}`}
-        alt={book.title}
-      />
-      <h3 title={book.title}>{checkTextLength(book.title)}</h3>
-      <p>{checkTextLength(book.author)}</p>
+    <div className={style['card']} key={book.id} onClick={onClick}>
+        <img
+          className={style['book-cover']}
+          src={`/images/${book.cover_url}`}
+          alt={book.title}
+        />
+      <h3 title={book.title} className={style['book-title']}>{checkTextLength(book.title)}</h3>
+      <p className={style['book-author']}>{checkTextLength(book.author)}</p>
 
       <div className={style['book-actions']}>
         <p>R$ {book.price}</p>
@@ -47,6 +47,6 @@ export const BookCard = ({ book, onClick }: Props) => {
           Comprar
         </Button>
       </div>
-    </button>
+    </div>
   );
 };
