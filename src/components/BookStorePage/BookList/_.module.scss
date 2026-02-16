@@ -1,6 +1,8 @@
 .books-container {
   display: grid;
   width: 100%;
+  max-width: 1200px;
+  margin: auto;
   grid-template-columns: repeat(auto-fill, 200px);
   gap: 1rem;
   justify-content: space-between;
