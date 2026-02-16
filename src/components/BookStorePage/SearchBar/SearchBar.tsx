@@ -2,6 +2,7 @@ import { useRef, useState, type Dispatch, type SetStateAction } from 'react';
 import { SearchIcon } from '@/components/misc/SearchIcon';
 import styles from './SearchBar.module.scss';
 import { CloseIcon } from '@/components/misc/CloseIcon';
+import { Button } from '@/components/misc/Button/Button';
 
 type Props = {
   searchTerm: string;
@@ -29,7 +30,8 @@ export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
           }
         }}
       ></input>
-      <button
+      <Button
+        kind='ghost'
         id={styles['searchbar-icon']}
         onClick={() => {
           if (!active && ref.current) {
@@ -41,9 +43,10 @@ export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
             setActive(false);
           }
         }}
+
       >
         {searchTerm ? <CloseIcon size={16}/> : <SearchIcon size='20px' />}
-      </button>
+      </Button>
 
     </div>
   );
