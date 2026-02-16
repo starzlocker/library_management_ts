@@ -13,6 +13,11 @@
   z-index: 2;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 
 .nav-title {
   display: flex;
@@ -64,7 +69,8 @@ nav {
     align-items: end;
     grid-column: 1/-1;
     display: grid;
-    grid-template-columns: 4fr 30px;
+    grid-template-columns: 1fr min-content min-content;
+    grid-template-rows: 1fr;
   }
 
   .nav-title {

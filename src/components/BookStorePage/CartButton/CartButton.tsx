@@ -22,7 +22,7 @@ export const CartButton = () => {
 
   return (
     <div className={style['cart-button-container']}>
-      <Button kind='ghost' onClick={openCartList}>
+      <Button kind='ghost' onClick={openCartList} style={{width: '40px', height: '40px'}}>
         <CartIcon color='black' />
       </Button>
       <div
