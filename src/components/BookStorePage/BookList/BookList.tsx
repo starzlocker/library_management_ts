@@ -26,10 +26,13 @@ export const BookList = ({books, isLoading, isError, error}:Props) => {
   }
 
   return (
-    <div className={styles['books-container']}>
-      {books.map((book) => (
-        <BookCard key={book.id} book={book}/>
-      ))}
-    </div>
+    <section className={styles['booklist']}>
+      <div className={styles['books-container']}>
+        
+        {books.map((book) => (
+          <BookCard key={book.id} book={book}/>
+        ))}
+      </div>
+    </section>
   );
 };
