@@ -29,9 +29,11 @@ export const Carousel = () => {
   useEffect(() => {
     if (!motion) return;
     if(ref.current) {
-      ref.current?.classList.remove(styles['sliding-in'])
-      ref.current.classList.add(styles['sliding-out'])
-    } 
+      const opposite = motion === 'next' ? 'previous' : 'next';
+      ref.current?.classList.remove(styles[opposite], styles['sliding-in'])
+      ref.current.classList.add(styles[motion], styles['sliding-out'])
+    }
+
     const motionTimeout = setTimeout(() => {
       if (motion === 'next') {
         moveToNextSlide();
