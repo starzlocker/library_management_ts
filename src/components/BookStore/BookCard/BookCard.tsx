@@ -2,15 +2,33 @@ import { Button } from "@/components/Button/Button";
 import type { Book } from "@/models/Book";
 import { useBookList } from "@/service/useBookList";
 import style from './BookCard.module.scss';
+import { useCart } from "@/hooks/useCart";
+import { useEffect, useState } from "react";
 
 type Props = {
   book: Book,
 }
 
 export const BookCard = ({book}:Props) => {
+  const [active, setActive] = useState(false);
+
   const {
     checkTextLength
   } = useBookList();
+
+  const {
+    addItemsToCart
+  } = useCart()
+
+
+  useEffect(() => {
+    if (!active) return;
+    setTimeout(() => {
+      
+      setActive(false)
+      
+    }, 2000)
+  }, [active])
 
   return (
     <div className={style['card']} key={book.id}>
@@ -24,7 +42,10 @@ export const BookCard = ({book}:Props) => {
 
       <div className={style['book-actions']}>
         <p>R$ {book.price}</p>
-        <Button onClick={() => {}} type="primary">Comprar</Button>
+        <Button onClick={() => {
+          addItemsToCart(book)
+          setActive(true)
+        }} kind="primary" className={`${style['addbook-btn']} ${active ? style['active'] : ''}`}>Comprar</Button>
       </div>
 
     </div>

@@ -1,6 +1,13 @@
+const MOCK = false;
+
+
 export const useLocalStorage = () => {
-  const getData = <T>(key: string):T => {
-    const data = localStorage.get(key);
+  const getData = <T>(key: string):T|null => {
+    if (MOCK) return null;
+
+    const data = localStorage.getItem(key);
+
+    if(!data) return null
 
     let result = null;
     try {
@@ -18,6 +25,8 @@ export const useLocalStorage = () => {
   }
 
   const writeData = (key:string, payload:unknown) => {
+    if (MOCK) return null;
+
     return typeof payload === 'string' ? 
       localStorage.setItem(key, payload) :
       localStorage.setItem(key, JSON.stringify(payload));

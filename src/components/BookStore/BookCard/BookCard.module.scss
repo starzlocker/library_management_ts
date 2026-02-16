@@ -1,3 +1,6 @@
+@import '@/global_styles/colors.scss';
+@import '@/global_styles/motion.scss';
+
 .card {
   display: flex;
   flex-direction: column;
@@ -8,7 +11,7 @@
   text-align: center;
   text-transform: capitalize;
   overflow: hidden;
-  transition: 0.3s;
+  transition: 0.3s $standard_expressive;
   cursor: pointer;
 
   &:hover {
@@ -22,7 +25,6 @@
     text-align: center;
     border-radius: 50%;
     border: 1px solid #00000033;
-    background-color: #ff4242cc;
     cursor: pointer;
   }
 
@@ -53,7 +55,8 @@
   }
 
   .addbook-btn {
-    width: 30px;
+    position: relative;
+    width: 80px;
     height: 30px;
     cursor: pointer;
   }
@@ -114,3 +117,44 @@
     }
   }
 }
+
+.active {
+  position: relative;
+  overflow: hidden;
+}
+
+.active::after {
+  content: 'Adicionado';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: $support-success;
+  animation: slide-in 2s $standard_expressive forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100%);
+  } 
+  15% {
+    transform: translateX(0);
+  }
+  85% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+// .add_book_button:active {
+//   background-color: greenyellow !important; 
+//   transition: background-color .1s;
+//   color: black;
+//   font-weight: bold;
+// }

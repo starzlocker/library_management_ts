@@ -28,8 +28,11 @@ nav {
 }
 
 .navbar-container {
+  position: fixed;
+  background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  z-index: 2;
 }
 
 @media screen and (max-width: 800px) {

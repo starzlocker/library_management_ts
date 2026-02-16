@@ -1,0 +1,63 @@
+@import '@/global_styles/colors.scss';
+@import '@/global_styles/motion.scss';
+
+.cart-modal-list {
+  height: 400px;
+  overflow: auto;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $border-strong-01;
+  border-top: 2px solid $border-strong-01;
+}
+
+.cart-modal-item {
+  display: flex;
+  align-items: start;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  border-bottom: 1px solid $border-strong-01;
+  padding: 8px;
+
+}
+
+.book-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  align-items: start;
+  height: 90px;
+  width: 100%;
+}
+
+.book-info-amount {
+  margin-top: auto;
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.book-info .price {
+  grid-column: 1/-1;
+  grid-row: 2;
+}
+
+.book-info .title {
+  grid-row: 1;
+  grid-column: 1/-1;
+}
+
+.cover {
+    width: 70px;
+    height: 89.6px;
+}
+
+.cart-modal-total {
+  margin-left: auto;
+  margin-top: auto;
+}
+
+
+.cart-modal-container {
+  width: 450px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
