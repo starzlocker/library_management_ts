@@ -1,0 +1,50 @@
+@use '@/global_styles/colors.scss' as colors;
+
+.details-modal {
+  max-width: 600px;
+}
+
+section {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.book-feature-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+}
+
+.comment-actions { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-feature-section img {
+  width: 100%;
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-box {
+  min-height: 90px;
+  padding: 8px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+.comment {
+  min-height: 90px;
+  background-color: colors.$layer-03;
+  border-radius: 8px;
+  padding: 8px;
+
+}
+

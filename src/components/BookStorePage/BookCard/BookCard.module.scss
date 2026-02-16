@@ -13,6 +13,8 @@
   transition: 0.3s $standard_expressive;
   padding: 8px;
   cursor: pointer;
+  background-color: transparent;
+  color: black;
 
   &:hover {
     background-color: rgb(240, 240, 240);

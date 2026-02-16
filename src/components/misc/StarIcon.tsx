@@ -4,10 +4,10 @@ interface StarIconProps extends ComponentPropsWithoutRef<'svg'> {
   size?: number | string; 
 }
 
-export const StarIcon = ({size='24px', color="#e0d502", ...props}:StarIconProps) => {
+export const StarIcon = ({size='24px', color="#000", className, ...props}:StarIconProps) => {
   return (
     <svg
-      viewBox="0 0 24 24"      
+      viewBox="0 0 18 18"      
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       width={size}   
@@ -15,10 +15,11 @@ export const StarIcon = ({size='24px', color="#e0d502", ...props}:StarIconProps)
       {...props}
     >
       <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M10.15 2.365c.68-1.651 3.02-1.651 3.7 0l2.336 5.674 5.24.308c1.837.108 2.565 2.432 1.118 3.569l-4.362 3.427 1.738 4.926c.645 1.827-1.423 3.411-3.019 2.314L12 19.213l-4.901 3.37c-1.596 1.097-3.664-.487-3.02-2.314l1.74-4.926-4.363-3.427C.01 10.779.736 8.455 2.575 8.346l5.24-.307 2.336-5.674zm1.85.761L9.186 9.961l-6.494.382 5.49 4.314-2.216 6.278L12 16.787l6.034 4.148-2.216-6.278 5.49-4.314-6.494-.382L12 3.126z"
-          fill={color}
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M5.705 17.886L10 15.97l4.295 1.915a1 1 0 001.402-1.019l-.494-4.677 3.148-3.493a1 1 0 00-.535-1.647l-4.6-.976L10.866 2a1 1 0 00-1.732 0l-2.35 4.074-4.6.976a1 1 0 00-.535 1.647l3.148 3.494-.494 4.676a1 1 0 001.402 1.018zm3.888-3.924l-3.119 1.39.359-3.395a1 1 0 00-.252-.774L4.295 8.646l3.34-.708a1 1 0 00.66-.478L10 4.502l1.706 2.958a1 1 0 00.659.478l3.34.708-2.286 2.537a1 1 0 00-.252.774l.359 3.396-3.119-1.39a1 1 0 00-.814 0z"
+        fill={color}
+        className={className}
       />
     </svg>
   )

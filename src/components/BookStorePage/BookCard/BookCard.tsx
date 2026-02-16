@@ -6,10 +6,11 @@ import { useCart } from '@/hooks/useCart';
 import { useEffect, useState } from 'react';
 
 type Props = {
-  book: Book;
+  book: Book,
+  onClick: () => void
 };
 
-export const BookCard = ({ book }: Props) => {
+export const BookCard = ({ book, onClick }: Props) => {
   const [active, setActive] = useState(false);
 
   const { checkTextLength } = useBookList();
@@ -24,7 +25,7 @@ export const BookCard = ({ book }: Props) => {
   }, [active]);
 
   return (
-    <div className={style['card']} key={book.id}>
+    <button className={style['card']} key={book.id} onClick={onClick}>
       <img
         className={style['book-cover']}
         src={`/images/${book.cover_url}`}
@@ -46,6 +47,6 @@ export const BookCard = ({ book }: Props) => {
           Comprar
         </Button>
       </div>
-    </div>
+    </button>
   );
 };

@@ -10,11 +10,14 @@ import { useBooks } from '@/hooks/useBooks';
 import { useMemo, useState } from 'react';
 import { Carousel } from '@/components/BookStorePage/Carousel/Carousel';
 import { BookListHeading } from '@/components/misc/BookListHeading';
+import type { Book } from '@/models/Book';
 
 export const BookStore = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const { books, isLoading, isError, error } = useBooks();
+
+  const [ currentBook, setCurrentBook ] = useState<Book | null>(null)
 
   const filteredBooks = useMemo(() => {
     if (!searchTerm) return books;
@@ -40,9 +43,10 @@ export const BookStore = () => {
           isLoading={isLoading}
           isError={isError}
           error={error}
+          setCurrentBook={setCurrentBook}
         />
         {/* <AddBookModal /> */}
-        <BookDetailsModal />
+        {currentBook && <BookDetailsModal book={currentBook} isOpen={currentBook?.id >= 0} onClose={() => setCurrentBook(null)}/>}
         <CartModal />
       </main>
     </CartContextProvider>

@@ -39,6 +39,8 @@ export const Modal = ({
   return (
     <dialog
       ref={ref}
+      closedby='any'
+      onClose={handleClose}
       className={`${styles['modal']} ${className || ''}`}
       {...props}
     >

@@ -1,12 +1,14 @@
+@use '@/global_styles/colors' as colors;
 
   .modal {
     min-width: 400px;
     margin: auto;
     z-index: 1000;
     padding: 1rem 1rem 1rem 1rem;
-    border: 1px solid black;
+    border: 1px solid colors.$border-subtle-01;
     border-radius: 8px;
     transition: 0.3s;
+    animation: pop-in .1s ease-out;
   }
 
   .modal-close-btn {
@@ -21,4 +23,14 @@
 
   .modal-header {
     margin-bottom: 1.5rem;
+  }
+
+  @keyframes pop-in {
+    from {
+      transform: scale(0%);
+    }
+
+    to {
+      transform: scale(100%);
+    }
   }
