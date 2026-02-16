@@ -32,7 +32,7 @@ export const Carousel = () => {
       ref.current?.classList.remove(styles['sliding-in'])
       ref.current.classList.add(styles['sliding-out'])
     } 
-    setTimeout(() => {
+    const motionTimeout = setTimeout(() => {
       if (motion === 'next') {
         moveToNextSlide();
       } else {
@@ -42,7 +42,19 @@ export const Carousel = () => {
       ref.current?.classList.add(styles['sliding-in'])
       setMotion(null)
     }, 200)
+
+    return () => {
+      clearTimeout(motionTimeout);
+    };
   }, [motion, moveToNextSlide, moveToPreviousSlide])
+
+  useEffect(() => {
+    const nextTimeout = setTimeout(() => {
+      setMotion('next');
+    }, 5000)
+
+    return () => clearTimeout(nextTimeout)
+  }, [motion])
 
 
   return (
