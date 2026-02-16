@@ -20,8 +20,10 @@ export const SearchBar = ({ searchTerm, setSearchTerm }:Props) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onBlur={() => {
-          ref.current?.blur()
-          setActive(false)
+          if(!searchTerm) {
+            ref.current?.blur()
+            setActive(false)
+          }
         }}
       ></input>
       <button id='searchbar-icon' onClick={() => {
