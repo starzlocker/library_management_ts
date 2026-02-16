@@ -35,6 +35,7 @@ export const useForm = () => {
   return {
     errorMap,
     addErrorToField,
-    isValid
+    isValid, 
+    validate
   }
 };
