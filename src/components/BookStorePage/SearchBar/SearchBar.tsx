@@ -1,6 +1,5 @@
 import { useRef, useState, type Dispatch, type SetStateAction } from 'react';
 import { SearchIcon } from '@/components/misc/SearchIcon';
-import { Button } from '@/components/misc/Button/Button';
 import styles from './SearchBar.module.scss';
 import { CloseIcon } from '@/components/misc/CloseIcon';
 

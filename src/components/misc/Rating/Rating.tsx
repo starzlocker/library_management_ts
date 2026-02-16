@@ -13,7 +13,7 @@ type Props = {
 
 export const Rating = ({
   currentRating,
-  setCurrentRating,
+  setCurrentRating=(()=>{}),
   readonly = false,
   size = 24,
 }: Props) => {
