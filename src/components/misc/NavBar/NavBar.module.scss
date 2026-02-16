@@ -1,5 +1,5 @@
+@use '@/global_styles/colors.scss' as colors;
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
-
 
 .nav-title {
   display: flex;
@@ -29,9 +29,13 @@ nav {
 
 .navbar-container {
   position: fixed;
+  width: 100%;
+  padding-right: 1rem;
+  height: 70px;
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid colors.$border-strong-01;
   z-index: 2;
 }
 

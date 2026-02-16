@@ -9,7 +9,7 @@ type Props = {
 export const NavBar = ({ children }:Props) => {
   return (
     <>
-      <header className={styles['navbar-container']}>
+      <div className={styles['navbar-container']}>
         <div className={styles['nav-title']}>
           <BookShelfIcon size='42px'/>
           <h1>the bookshelf</h1>
@@ -17,8 +17,8 @@ export const NavBar = ({ children }:Props) => {
         <nav>
           {children}
         </nav>
-      </header>
-      <div style={{marginBottom: '75px'}} />
+      </div>
+      <div style={{marginBottom: '70px'}} />
     </>
   );
 };

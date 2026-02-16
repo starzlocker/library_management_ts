@@ -2,7 +2,7 @@
 import { BookDetailsModal } from '@/components/BookStorePage/BookDetailsModal/BookDetailsModal';
 import { BookList } from '@/components/BookStorePage/BookList/BookList';
 import { CartModal } from '@/components/BookStorePage/CartModal/CartModal';
-import { NavBar } from '@/components/misc/NavBar/NavBar';
+import { NavBar } from '@/components/BookStorePage/NavBar/NavBar';
 import { SearchBar } from '@/components/BookStorePage/SearchBar/SearchBar';
 import { CartButton } from '@/components/BookStorePage/CartButton/CartButton';
 import { CartContextProvider } from '@/context/CartContextProvider';
