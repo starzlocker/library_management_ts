@@ -1,0 +1,27 @@
+import type { ComponentPropsWithoutRef } from 'react';
+
+interface ChevronRightProps extends ComponentPropsWithoutRef<'svg'> {
+  size?: number | string;
+}
+
+export const ChevronRight = ({
+  size = '24px',
+  color = '#0F0F0F',
+  ...props
+}: ChevronRightProps) => {
+  return (
+    <svg
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      width={size}
+      height={size}
+      {...props}
+    >
+      <path
+        d='M7.82 20.731a1 1 0 001.415 0l6.644-6.644a3 3 0 00.001-4.242L9.31 3.27a1 1 0 10-1.415 1.414l6.572 6.572a1 1 0 010 1.414l-6.646 6.647a1 1 0 000 1.414z'
+        fill={color}
+      />
+    </svg>
+  );
+};
