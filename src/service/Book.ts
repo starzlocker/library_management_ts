@@ -4,7 +4,7 @@ import {z} from 'zod';
 export const getBooks = async (page:number) => {
   const paramPage = 'page';
   const encodedPage = encodeURIComponent(page);
-  const response = await fetch(`http://204.216.182.116:9000/api/books?${paramPage}=${encodedPage}`)
+  const response = await fetch(`https://204.216.182.116:9000/api/books?${paramPage}=${encodedPage}`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch books from the API');
