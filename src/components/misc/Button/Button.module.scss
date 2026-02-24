@@ -16,6 +16,16 @@ button.primary:hover {
   background-color: colors.$button-primary-hover;
 }
 
+button:disabled {
+  background-color: colors.$button-disabled;
+  pointer-events: none;
+}
+
+button:disabled:hover {
+  background-color: colors.$button-disabled;
+}
+
+
 button.secondary:hover {
   background-color: colors.$button-secondary-hover;
 }
