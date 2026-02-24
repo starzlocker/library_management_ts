@@ -5,6 +5,7 @@ import styles from './CartModal.module.scss';
 import { AmountSelector } from '@/components/misc/AmountSelector/AmountSelector';
 import { Button } from '@/components/misc/Button/Button';
 import { CloseIcon } from '@/components/misc/CloseIcon';
+import Currency from '@/utils/currency';
 
 export const CartModal = () => {
   const {
@@ -34,14 +35,14 @@ export const CartModal = () => {
           {Object.values(shoppingCart).map((book) => (
             <li key={book.id} className={styles['cart-modal-item']}>
               <img
-                src={`/images/${book.cover_url}`}
+                src={book.coverUrl || 'images/nocover.jpg'}
                 alt={book.title}
                 className={styles['cover']}
               />
               <div className={styles['book-info']}>
                 <p className={styles['title']}>{book.title}</p>
                 <p className={styles['price']}>
-                  <strong>R$ {book.price}</strong>
+                  <strong>R$ {Currency.toString(book.price)}</strong>
                 </p>
                 <AmountSelector
                   amount={book.amount}
@@ -58,7 +59,7 @@ export const CartModal = () => {
         </ul>
 
         <p className={styles['cart-modal-total']}>
-          Total: <strong>R$ {total.toFixed(2)}</strong>
+          Total: <strong>R$ {Currency.toString(total)}</strong>
         </p>
       </section>
     </Modal>
