@@ -1,21 +1,22 @@
-import { BookSchema, type Book } from "@/models/Book";
-import { books } from '@/mocks/books'
+import { BookSchema } from "@/models/Book";
 import {z} from 'zod';
 
-export const getBooks = async ():Promise<Book[]> => {
-  const data = await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(books)
-    }, 500);
-  });
+export const getBooks = async (page:number) => {
+  const paramPage = 'page';
+  const encodedPage = encodeURIComponent(page);
+  const response = await fetch(`https://libapi.duckdns.org/api/books?${paramPage}=${encodedPage}`)
 
-  // if (!response.ok) {
-  //   throw new Error('Teste');
-  // }
+  if (!response.ok) {
+    throw new Error('Failed to fetch books from the API');
+  }
 
-  // const data = await response.json();
+  const data = await response.json();
 
-  const result = z.array(BookSchema).safeParse(data);
+  const result = z.object({
+    data: z.array(BookSchema),
+    totalItems: z.number(),
+    page: z.number()
+  }).safeParse(data);
 
   if (!result.success) {
     throw new Error(result.error.message);

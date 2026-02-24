@@ -17,7 +17,7 @@ import { UserLoginModal } from '@/components/misc/UserLoginModal/UserLoginModal'
 export const BookStore = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const { books, isLoading, isError, error } = useBooks();
+  const { books, totalItems, isLoading, isError, error, refetchBooks } = useBooks();
 
   const [ currentBook, setCurrentBook ] = useState<Book | null>(null)
 
@@ -45,6 +45,8 @@ export const BookStore = () => {
         {!searchTerm && <BookListHeading/>}
         <BookList
           books={filteredBooks}
+          totalBooks={totalItems}
+          refetchBooks={refetchBooks}
           isLoading={isLoading}
           isError={isError}
           error={error}
