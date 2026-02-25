@@ -4,7 +4,7 @@ import {z} from 'zod';
 export const getBooks = async (page:number) => {
   const paramPage = 'page';
   const encodedPage = encodeURIComponent(page);
-  const response = await fetch(`https://libapi.duckdns.org/api/books?${paramPage}=${encodedPage}`)
+  const response = await fetch(`${import.meta.env.VITE_BACKEND}/api/books?${paramPage}=${encodedPage}`)
 
   if (!response.ok) {
     throw new Error('Failed to fetch books from the API');
