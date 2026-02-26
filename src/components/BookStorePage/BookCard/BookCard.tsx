@@ -57,7 +57,7 @@ export const BookCard = ({ book, onClick }: Props) => {
         style={{
           position: 'relative',
           width: '100%',
-          backgroundImage: `url(https://covers.openlibrary.org/b/isbn/${book.isbn}-S.jpg)`,
+          // backgroundImage: `url(https://covers.openlibrary.org/b/isbn/${book.isbn}-S.jpg)`,
         }}
         className={style['blur-div']}
       >

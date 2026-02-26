@@ -22,7 +22,7 @@
 
 .skeleton {
   height: 370px;
-  animation: pulse 1s linear .5s infinite alternate;
+  animation: pulse 1s alternate infinite;
 }
 
 .book-actions {
@@ -42,9 +42,12 @@
 }
 
 .blur-div {
+  padding: 0px;
+  height: 230px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  animation: pulse 1s alternate infinite;
 }
 
 
