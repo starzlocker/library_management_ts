@@ -40,7 +40,7 @@ export const BookList = ({
     );
   }
 
-  if (!books.length) {
+  if (!isLoading && !books.length) {
     return (
       <section className={styles['booklist']}>
         <p>Nenhum livro encontrado</p>
