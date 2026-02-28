@@ -11,10 +11,10 @@ export const Carousel = () => {
 
   const featured = useMemo(() => [
     {
-      image: '/promo/promo.png',
+      image: '/promo/promo.jpeg',
     },
     {
-      image: '/promo/promo2.png',
+      image: '/promo/promo2.jpeg',
     },
   ], [])
 
