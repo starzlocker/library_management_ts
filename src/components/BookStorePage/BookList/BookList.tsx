@@ -28,7 +28,6 @@ export const BookList = ({
   error,
   setCurrentBook,
 }: Props) => {
-
   if (isError) {
     return (
       <div>
@@ -47,13 +46,11 @@ export const BookList = ({
 
   return (
     <section className={styles['booklist']}>
-      {isLoading ? 
-      (
+      {isLoading ? (
         <div className={styles['books-container']}>
-          <BookCardSkeleton/>
+          <BookCardSkeleton />
         </div>
-      ) :
-      (
+      ) : (
         <div className={styles['books-container']}>
           {books.map((book) => (
             <BookCard
@@ -67,12 +64,28 @@ export const BookList = ({
         </div>
       )}
 
-      <div style={{display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginTop: '4rem'}}>
-        <Button kind='primary' onClick={goToPrevPage} disabled={page === 1 || isLoading || isError}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1rem',
+          justifyContent: 'center',
+          marginTop: '4rem',
+        }}
+      >
+        <Button
+          kind='primary'
+          onClick={goToPrevPage}
+          disabled={page === 1 || isLoading || isError}
+        >
           Anterior
         </Button>
         Paginação: {page} / {maxPages}
-        <Button kind='primary' onClick={goToNextPage} disabled={page === maxPages || isLoading || isError}>
+        <Button
+          kind='primary'
+          onClick={goToNextPage}
+          disabled={page === maxPages || isLoading || isError}
+        >
           Próxima
         </Button>
       </div>
