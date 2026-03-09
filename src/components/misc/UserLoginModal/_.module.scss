@@ -1,4 +1,4 @@
-@use '@/global_styles/colors.scss' as colors;
+@use "@/global_styles/colors.scss" as colors;
 
 .user-login-container {
   min-width: 400px;
@@ -61,7 +61,6 @@
     width: auto;
     padding: 0px 4px;
     text-align: center;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
   }
-
 }

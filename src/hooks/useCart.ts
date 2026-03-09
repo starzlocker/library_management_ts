@@ -1,9 +1,9 @@
-import { useLocalStorage } from './useLocalStorage';
-import { useContext } from 'react';
-import { CartContext } from '@/context/CartContext';
-import type { Book } from '@/models/Book';
+import { useLocalStorage } from "./useLocalStorage";
+import { useContext } from "react";
+import { CartContext } from "@/context/CartContext";
+import type { Book } from "@/models/Book";
 
-const SHOPPING_CART = 'shoppingCart';
+const SHOPPING_CART = "shoppingCart";
 
 export const useCart = () => {
   const { writeData } = useLocalStorage();
@@ -11,7 +11,7 @@ export const useCart = () => {
   const ctx = useContext(CartContext);
 
   if (!ctx) {
-    throw new Error('Contexto deve ter um Provider.');
+    throw new Error("Contexto deve ter um Provider.");
   }
 
   const { shoppingCart, setShoppingCart, isOpen, setIsOpen } = ctx;
@@ -22,7 +22,8 @@ export const useCart = () => {
     const newShoppingCart = { ...shoppingCart };
     for (const book of booksToAdd) {
       if (book.id in newShoppingCart) {
-        if(newShoppingCart[book.id].amount < 100) newShoppingCart[book.id].amount += 1;
+        if (newShoppingCart[book.id].amount < 100)
+          newShoppingCart[book.id].amount += 1;
       } else {
         newShoppingCart[book.id] = { ...book, amount: 1 };
       }
@@ -47,14 +48,14 @@ export const useCart = () => {
 
   const decrementItem = (id: number) => {
     const newShoppingCart = { ...shoppingCart };
-    newShoppingCart[id].amount -= 1 
+    newShoppingCart[id].amount -= 1;
     if (!newShoppingCart[id].amount) return removeItemFromCart(id);
 
     setShoppingCart(() => {
       writeData(SHOPPING_CART, newShoppingCart);
       return newShoppingCart;
     });
-  }
+  };
 
   const clearCart = () => {
     setShoppingCart(() => {

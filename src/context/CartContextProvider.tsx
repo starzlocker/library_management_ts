@@ -1,34 +1,34 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { CartContext, type ShoppingCart, type ShoppingCartItem } from "./CartContext"
+import {
+  CartContext,
+  type ShoppingCart,
+  type ShoppingCartItem,
+} from "./CartContext";
 import { useMemo, useState, type ReactNode } from "react";
 
-const SHOPPING_CART = 'shoppingCart'
+const SHOPPING_CART = "shoppingCart";
 
 type Props = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
-export const CartContextProvider = ({children}:Props) => {
+export const CartContextProvider = ({ children }: Props) => {
+  const { getData } = useLocalStorage();
 
-  const {getData} = useLocalStorage();
-
-  const initialData = (
-    getData<ShoppingCartItem[]>(SHOPPING_CART) || {}
-  );
+  const initialData = getData<ShoppingCartItem[]>(SHOPPING_CART) || {};
 
   const [shoppingCart, setShoppingCart] = useState<ShoppingCart>(initialData);
   const [isOpen, setIsOpen] = useState(false);
 
-  const value = useMemo(() => ({
-    shoppingCart,
-    isOpen,
-    setShoppingCart,
-    setIsOpen
-  }), [shoppingCart, isOpen])
+  const value = useMemo(
+    () => ({
+      shoppingCart,
+      isOpen,
+      setShoppingCart,
+      setIsOpen,
+    }),
+    [shoppingCart, isOpen],
+  );
 
-  return (
-    <CartContext.Provider value={value}>
-      {children}
-    </CartContext.Provider>
-  )
-}
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+};

@@ -1,24 +1,22 @@
-import { type ReactNode } from 'react';
-import styles from './NavBar.module.scss'
-import { BookShelfIcon } from '@/components/misc/BookShelfIcon';
+import { type ReactNode } from "react";
+import styles from "./NavBar.module.scss";
+import { BookShelfIcon } from "@/components/misc/BookShelfIcon";
 
 type Props = {
-  children?: ReactNode
-}
+  children?: ReactNode;
+};
 
-export const NavBar = ({ children }:Props) => {
+export const NavBar = ({ children }: Props) => {
   return (
     <>
-      <div className={styles['navbar-container']}>
-        <div className={styles['nav-title']}>
-          <BookShelfIcon size='42px'/>
+      <div className={styles["navbar-container"]}>
+        <div className={styles["nav-title"]}>
+          <BookShelfIcon size="42px" />
           <h1>the bookshelf</h1>
         </div>
-        <nav>
-          {children}
-        </nav>
+        <nav>{children}</nav>
       </div>
-      <div className={styles['spacer']} />
+      <div className={styles["spacer"]} />
     </>
   );
 };

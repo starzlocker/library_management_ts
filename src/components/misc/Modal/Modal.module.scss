@@ -1,42 +1,41 @@
-@use '@/global_styles/colors' as colors;
+@use "@/global_styles/colors" as colors;
 
+.modal {
+  margin: auto;
+  z-index: 1000;
+  padding: 1rem 1rem 1rem 1rem;
+  border: 1px solid colors.$border-subtle-01;
+  border-radius: 8px;
+  transition: 0.3s;
+  animation: pop-in 0.1s ease-out;
+}
+
+@media screen and (max-width: 500px) {
   .modal {
-    margin: auto;
-    z-index: 1000;
-    padding: 1rem 1rem 1rem 1rem;
-    border: 1px solid colors.$border-subtle-01;
-    border-radius: 8px;
-    transition: 0.3s;
-    animation: pop-in .1s ease-out;
+    width: 100%;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-header {
+  margin-bottom: 1.5rem;
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0%);
   }
 
-  @media screen and (max-width: 500px) {
-    .modal {
-      width: 100%;
-    }
-    
+  to {
+    transform: scale(100%);
   }
-
-  .modal-close-btn {
-    position: absolute;
-    right: 16px;
-    top: 16px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-header {
-    margin-bottom: 1.5rem;
-  }
-
-  @keyframes pop-in {
-    from {
-      transform: scale(0%);
-    }
-
-    to {
-      transform: scale(100%);
-    }
-  }
+}

@@ -1,5 +1,5 @@
-@use '@/global_styles/colors.scss' as colors;
-@use '@/global_styles/motion.scss' as motion;
+@use "@/global_styles/colors.scss" as colors;
+@use "@/global_styles/motion.scss" as motion;
 
 .card {
   display: flex;
@@ -49,14 +49,11 @@
   background-position: center;
   overflow: hidden;
   animation: pulse 1s alternate infinite;
-
 }
-
 
 .blur-div > img {
   opacity: 0;
-  transition: opacity .2s ease-in;
-
+  transition: opacity 0.2s ease-in;
 }
 
 .blur-div.loaded > img {
@@ -120,7 +117,7 @@
 }
 
 .active::after {
-  content: 'Adicionado';
+  content: "Adicionado";
   position: absolute;
   top: 0;
   left: 0;
@@ -154,6 +151,5 @@
   }
   to {
     background-color: rgb(201, 201, 201);
-
   }
 }

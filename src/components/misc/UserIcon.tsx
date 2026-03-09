@@ -6,18 +6,22 @@
 
 import type { ComponentPropsWithoutRef } from "react";
 
-interface UserIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string; 
+interface UserIconProps extends ComponentPropsWithoutRef<"svg"> {
+  size?: number | string;
 }
 
-export const UserIcon = ({size='24px', color="#0F0F0F", ...props}:UserIconProps) => {
+export const UserIcon = ({
+  size = "24px",
+  color = "#0F0F0F",
+  ...props
+}: UserIconProps) => {
   return (
     <svg
-      viewBox="-1 0 19 19"     
+      viewBox="-1 0 19 19"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size}   
-      height={size}  
+      width={size}
+      height={size}
       {...props}
     >
       <path
@@ -25,5 +29,5 @@ export const UserIcon = ({size='24px', color="#0F0F0F", ...props}:UserIconProps)
         fill={color}
       />
     </svg>
-  )
-}
+  );
+};

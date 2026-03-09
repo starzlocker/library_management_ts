@@ -24,12 +24,11 @@
 .next-button {
   position: absolute;
   width: 100px;
-  height: 100px;  
+  height: 100px;
   color: black;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-
 }
 
 .slide-banner {
@@ -37,51 +36,53 @@
 }
 
 .sliding-in.next {
-  animation: slide-in-next .3s;
+  animation: slide-in-next 0.3s;
 }
 
 .sliding-out.next {
-  animation: slide-out-next .3s;
+  animation: slide-out-next 0.3s;
 }
 
 .sliding-in.previous {
-  animation: slide-in-previous .3s;
+  animation: slide-in-previous 0.3s;
 }
 
 .sliding-out.previous {
-  animation: slide-out-previous .3s;
+  animation: slide-out-previous 0.3s;
 }
 
-
-
 @keyframes slide-out-next {
- from {
-  transform: translateX(0px);
- } to {
-  transform: translateX(-100%);
- }
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes slide-out-previous {
- from {
-  transform: translateX(0px);
- } to {
-  transform: translateX(100%);
- }
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes slide-in-next {
-   from {
-  transform: translateX(100%);
- } to {
-  transform: translateX(0px);
- }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes slide-in-previous {
-   from {
-  transform: translateX(-100%);
- } to {
-  transform: translateX(0px);
- }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }

@@ -1,1 +1,1 @@
-import '@testing-library/jest-dom/vitest'; // Note the /vitest extension
+import "@testing-library/jest-dom/vitest"; // Note the /vitest extension
