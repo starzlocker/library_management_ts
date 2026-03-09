@@ -1,11 +1,9 @@
 import { BookCard } from '../BookCard/BookCard';
 import type { Book } from '@/models/Book';
 import styles from './_.module.scss';
-import { useEffect, type Dispatch, type SetStateAction } from 'react';
-import { usePagination } from '@/hooks/usePagination';
+import { type Dispatch, type SetStateAction } from 'react';
 import { Button } from '@/components/misc/Button/Button';
 import { BookCardSkeleton } from '../BookCard/BookCardSkeleton';
-import type { getBookRequest } from '@/service/Book';
 
 type Props = {
   books: Book[];
