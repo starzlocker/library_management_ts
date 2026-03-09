@@ -4,6 +4,9 @@ import styles from './_.module.scss';
 import { type Dispatch, type SetStateAction } from 'react';
 import { Button } from '@/components/misc/Button/Button';
 import { BookCardSkeleton } from '../BookCard/BookCardSkeleton';
+import { GhostIcon } from '@/components/misc/GhostIcon';
+import { CloseIcon } from '@/components/misc/CloseIcon';
+import { DeadIcon } from '@/components/misc/DeadIcon';
 
 type Props = {
   books: Book[];
@@ -30,16 +33,22 @@ export const BookList = ({
 }: Props) => {
   if (isError) {
     return (
-      <div>
+      <div className={styles['not-found-message']}>
+        <DeadIcon size={120}/>
         <p>{`Erro ao buscar os livros: ${error || 'Erro desconhecido'}`}</p>
       </div>
     );
   }
 
-  if (!isLoading && !books.length) {
+  if (
+    !isLoading && !books.length
+  ) {
     return (
       <section className={styles['booklist']}>
-        <p>Nenhum livro encontrado</p>
+        <div className={styles['not-found-message']}>
+          <GhostIcon size={120}/>
+          <p>Nenhum livro encontrado</p>
+        </div>
       </section>
     );
   }

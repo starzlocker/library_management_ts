@@ -58,7 +58,7 @@ export const BookStore = () => {
       </header>
       <main>
         {!searchTerm && <Carousel />}
-        {!searchTerm && <BookListHeading />}
+        {(!searchTerm && books.length > 0) && <BookListHeading />}
         <BookList
           books={books}
           goToNextPage={goToNextPage}
