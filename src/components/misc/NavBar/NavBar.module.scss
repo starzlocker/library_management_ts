@@ -21,8 +21,9 @@ a {
 
 .nav-title {
   display: flex;
-  grid-column: 2/2;
-  justify-content: center;
+  grid-column: 0/1;
+  justify-content: start;
+  padding-left: 16px;
   align-items: center;
   flex-direction: row;
   gap: 8px;
@@ -43,16 +44,16 @@ nav {
   justify-content: end;
   align-items: center;
   gap: 1rem;
+  grid-column: 2/-1;
 }
 
 .spacer {
   margin-bottom: 70px;
 }
 
-
 @media screen and (max-width: 1200px) {
   .nav-title {
-    grid-column: 1/3;
+    grid-column: 0/1;
     justify-content: start;
   }
 }
