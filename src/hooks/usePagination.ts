@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export const usePagination = (total:number) => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const limit = 15;
-  const maxPages = Math.floor(total / limit);
+  const maxPages = Math.ceil(total / limit);
 
   const goToNextPage = () => {
     if (page < maxPages) setPage(prev => prev + 1);
