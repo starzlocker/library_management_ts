@@ -1,4 +1,4 @@
-import { useRef, useState, type Dispatch, type SetStateAction } from 'react';
+import { useRef, useState } from 'react';
 import { SearchIcon } from '@/components/misc/SearchIcon';
 import styles from './SearchBar.module.scss';
 import { CloseIcon } from '@/components/misc/CloseIcon';
@@ -6,10 +6,10 @@ import { Button } from '@/components/misc/Button/Button';
 
 type Props = {
   searchTerm: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
+  handleChange: (value: string) => void;
 };
 
-export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
+export const SearchBar = ({ searchTerm, handleChange }: Props) => {
   const [active, setActive] = useState(false);
   const ref = useRef<HTMLInputElement | null>(null);
 
@@ -22,7 +22,7 @@ export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
         type='text'
         ref={ref}
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => handleChange(e.target.value)}
         onBlur={(e) => {
           if ((!e.currentTarget.contains(e.relatedTarget) && !searchTerm)) {
             setActive(false);
@@ -39,7 +39,7 @@ export const SearchBar = ({ searchTerm, setSearchTerm }: Props) => {
             ref.current.focus();
           }
           else if (active && searchTerm) {
-            setSearchTerm('');
+            handleChange('');
             setActive(false);
           }
         }}

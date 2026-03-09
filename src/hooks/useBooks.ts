@@ -1,6 +1,6 @@
 import type { Book } from "@/models/Book";
-import { getBooks } from "@/service/Book";
-import { useCallback, useEffect, useState } from "react";
+import { getBooks, type getBookRequest } from "@/service/Book";
+import { useCallback, useState } from "react";
 
 export const useBooks = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -8,11 +8,11 @@ export const useBooks = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchBooks = useCallback(async (page:number=0) => {
+  const fetchBooks = useCallback(async (params: getBookRequest) => {
     setIsLoading(true);
     setError(null);
     try {
-      const data = await getBooks(page);
+      const data = await getBooks(params);
       setBooks(data.data);
       setTotalItems(data.totalItems);
     } catch (e) {
@@ -21,10 +21,6 @@ export const useBooks = () => {
       setIsLoading(false);
     }
   }, []);
-
-  useEffect(() => {
-    fetchBooks();
-  }, [fetchBooks]);
 
   return {
     books,

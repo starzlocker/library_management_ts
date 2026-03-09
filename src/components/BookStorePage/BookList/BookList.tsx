@@ -1,15 +1,16 @@
 import { BookCard } from '../BookCard/BookCard';
 import type { Book } from '@/models/Book';
 import styles from './_.module.scss';
-import { useEffect, type Dispatch, type SetStateAction } from 'react';
-import { usePagination } from '@/hooks/usePagination';
+import { type Dispatch, type SetStateAction } from 'react';
 import { Button } from '@/components/misc/Button/Button';
 import { BookCardSkeleton } from '../BookCard/BookCardSkeleton';
 
 type Props = {
   books: Book[];
-  refetchBooks: (page?: number) => void;
-  totalBooks: number;
+  page: number;
+  goToNextPage: () => void;
+  goToPrevPage: () => void;
+  maxPages: number;
   isLoading: boolean;
   isError: boolean;
   error: string | null;
@@ -18,19 +19,15 @@ type Props = {
 
 export const BookList = ({
   books,
-  totalBooks,
-  refetchBooks,
+  page,
+  goToNextPage,
+  goToPrevPage,
+  maxPages,
   isLoading,
   isError,
   error,
   setCurrentBook,
 }: Props) => {
-  const { page, goToNextPage, goToPrevPage, maxPages } =
-    usePagination(totalBooks);
-
-  useEffect(() => {
-    refetchBooks(page);
-  }, [refetchBooks, page]);
 
   if (isError) {
     return (
@@ -71,10 +68,10 @@ export const BookList = ({
       )}
 
       <div style={{display: 'flex', alignItems: 'center', gap: '1rem', justifyContent: 'center', marginTop: '4rem'}}>
-        <Button kind='primary' onClick={goToPrevPage} disabled={page === 0 || isLoading || isError}>
+        <Button kind='primary' onClick={goToPrevPage} disabled={page === 1 || isLoading || isError}>
           Anterior
         </Button>
-        Paginação: {page + 1} / {maxPages+1}
+        Paginação: {page} / {maxPages}
         <Button kind='primary' onClick={goToNextPage} disabled={page === maxPages || isLoading || isError}>
           Próxima
         </Button>
