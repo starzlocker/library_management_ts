@@ -1,17 +1,22 @@
 import type { ComponentPropsWithoutRef } from "react";
 
-interface FilledStarIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string; 
+interface FilledStarIconProps extends ComponentPropsWithoutRef<"svg"> {
+  size?: number | string;
 }
 
-export const FilledStarIcon = ({size='24px', color="#000", className, ...props}:FilledStarIconProps) => {
+export const FilledStarIcon = ({
+  size = "24px",
+  color = "#000",
+  className,
+  ...props
+}: FilledStarIconProps) => {
   return (
     <svg
-      viewBox="0 0 18 18"      
+      viewBox="0 0 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size}   
-      height={size}  
+      width={size}
+      height={size}
       {...props}
     >
       <path
@@ -20,5 +25,5 @@ export const FilledStarIcon = ({size='24px', color="#000", className, ...props}:
         className={className}
       />
     </svg>
-  )
-}
+  );
+};

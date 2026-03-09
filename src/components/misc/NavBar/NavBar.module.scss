@@ -1,5 +1,5 @@
-@use '@/global_styles/colors.scss' as colors;
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@use "@/global_styles/colors.scss" as colors;
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap");
 
 .navbar-container {
   position: fixed;
@@ -18,7 +18,6 @@ a {
   text-decoration: none;
 }
 
-
 .nav-title {
   display: flex;
   grid-column: 0/1;
@@ -30,7 +29,7 @@ a {
 }
 
 h1 {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: "Comfortaa", sans-serif;
   font-weight: 700;
   font-size: 28px;
 }
@@ -63,7 +62,7 @@ nav {
     grid-template-rows: 1fr 1fr;
     height: 100px;
     padding: 8px 16px;
-  } 
+  }
 
   nav {
     grid-row: 2/3;

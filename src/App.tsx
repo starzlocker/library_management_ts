@@ -1,10 +1,8 @@
-import './App.scss'
-import { BookStore } from './pages/BookStore'
+import "./App.scss";
+import { BookStore } from "./pages/BookStore";
 
 function App() {
-  return (
-    <BookStore />
-  )
+  return <BookStore />;
 }
 
-export default App
+export default App;

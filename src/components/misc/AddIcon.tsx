@@ -1,17 +1,21 @@
 import type { ComponentPropsWithoutRef } from "react";
 
-interface AddIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string; 
+interface AddIconProps extends ComponentPropsWithoutRef<"svg"> {
+  size?: number | string;
 }
 
-export const AddIcon = ({size='24px', color="#0F0F0F", ...props}:AddIconProps) => {
+export const AddIcon = ({
+  size = "24px",
+  color = "#0F0F0F",
+  ...props
+}: AddIconProps) => {
   return (
     <svg
-      viewBox="0 0 24 24"      
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size}   
-      height={size}  
+      width={size}
+      height={size}
       {...props}
     >
       <path
@@ -19,5 +23,5 @@ export const AddIcon = ({size='24px', color="#0F0F0F", ...props}:AddIconProps) =
         fill={color}
       />
     </svg>
-  )
-}
+  );
+};

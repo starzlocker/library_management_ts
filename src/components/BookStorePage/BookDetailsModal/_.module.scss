@@ -1,4 +1,4 @@
-@use '@/global_styles/colors.scss' as colors;
+@use "@/global_styles/colors.scss" as colors;
 
 .details-modal {
   max-width: 600px;
@@ -18,7 +18,7 @@ textarea {
   gap: 1rem;
 }
 
-.comment-actions { 
+.comment-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,7 @@ textarea {
 .comment-box {
   min-height: 90px;
   padding: 8px;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 
 .comment {
@@ -45,6 +45,4 @@ textarea {
   background-color: colors.$layer-03;
   border-radius: 8px;
   padding: 8px;
-
 }
-

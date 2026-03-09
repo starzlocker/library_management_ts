@@ -3,11 +3,11 @@ import {
   useRef,
   type ReactNode,
   type ComponentPropsWithoutRef,
-} from 'react';
-import styles from './Modal.module.scss';
-import { CloseIcon } from '../CloseIcon';
+} from "react";
+import styles from "./Modal.module.scss";
+import { CloseIcon } from "../CloseIcon";
 
-interface ModalProps extends ComponentPropsWithoutRef<'dialog'> {
+interface ModalProps extends ComponentPropsWithoutRef<"dialog"> {
   children?: ReactNode;
   isOpen: boolean;
   title?: string;
@@ -39,15 +39,15 @@ export const Modal = ({
   return (
     <dialog
       ref={ref}
-      closedby='any'
+      closedby="any"
       onClose={handleClose}
-      className={`${styles['modal']} ${className || ''}`}
+      className={`${styles["modal"]} ${className || ""}`}
       {...props}
     >
-      <section className={styles['modal-header']}>
+      <section className={styles["modal-header"]}>
         <h2>{title}</h2>
-        <button onClick={handleClose} className={styles['modal-close-btn']}>
-          <CloseIcon size={'12px'} />
+        <button onClick={handleClose} className={styles["modal-close-btn"]}>
+          <CloseIcon size={"12px"} />
         </button>
       </section>
 

@@ -1,5 +1,5 @@
-@use '@/global_styles/colors.scss' as colors;
-@use '@/global_styles/motion.scss' as motion;
+@use "@/global_styles/colors.scss" as colors;
+@use "@/global_styles/motion.scss" as motion;
 
 button {
   width: auto;
@@ -24,7 +24,6 @@ button:disabled {
 button:disabled:hover {
   background-color: colors.$button-disabled;
 }
-
 
 button.secondary:hover {
   background-color: colors.$button-secondary-hover;

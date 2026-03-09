@@ -1,8 +1,8 @@
-import { useMemo, type Dispatch, type SetStateAction } from 'react';
-import { Button } from '../Button/Button';
-import { StarIcon } from '../StarIcon';
-import { FilledStarIcon } from '../FilledStarIcon';
-import styles from './_.module.scss';
+import { useMemo, type Dispatch, type SetStateAction } from "react";
+import { Button } from "../Button/Button";
+import { StarIcon } from "../StarIcon";
+import { FilledStarIcon } from "../FilledStarIcon";
+import styles from "./_.module.scss";
 
 type Props = {
   currentRating: number;
@@ -13,7 +13,7 @@ type Props = {
 
 export const Rating = ({
   currentRating,
-  setCurrentRating=(()=>{}),
+  setCurrentRating = () => {},
   readonly = false,
   size = 24,
 }: Props) => {
@@ -43,20 +43,20 @@ export const Rating = ({
       {stars.map((star, i) => (
         <Button
           key={star.id}
-          kind='ghost'
+          kind="ghost"
           onClick={() => {
             setCurrentRating(currentRating === i + 1 ? i : i + 1);
           }}
           disabled={readonly}
           className={`
-            ${styles['button']}
-            ${readonly ? styles['disabled'] : ''}
+            ${styles["button"]}
+            ${readonly ? styles["disabled"] : ""}
           `}
         >
           {i < currentRating ? (
-            <FilledStarIcon className={styles['rating-star']} size={size} />
+            <FilledStarIcon className={styles["rating-star"]} size={size} />
           ) : (
-            <StarIcon className={styles['rating-star']} size={size} />
+            <StarIcon className={styles["rating-star"]} size={size} />
           )}
         </Button>
       ))}

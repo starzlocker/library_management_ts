@@ -1,17 +1,22 @@
 import type { ComponentPropsWithoutRef } from "react";
 
-interface StarIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string; 
+interface StarIconProps extends ComponentPropsWithoutRef<"svg"> {
+  size?: number | string;
 }
 
-export const StarIcon = ({size='24px', color="#000", className, ...props}:StarIconProps) => {
+export const StarIcon = ({
+  size = "24px",
+  color = "#000",
+  className,
+  ...props
+}: StarIconProps) => {
   return (
     <svg
-      viewBox="0 0 18 18"      
+      viewBox="0 0 18 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size}   
-      height={size}  
+      width={size}
+      height={size}
       {...props}
     >
       <path
@@ -22,5 +27,5 @@ export const StarIcon = ({size='24px', color="#000", className, ...props}:StarIc
         className={className}
       />
     </svg>
-  )
-}
+  );
+};

@@ -1,11 +1,11 @@
-import type { ComponentPropsWithoutRef } from 'react';
-import { AddIcon } from '@/components/misc/AddIcon';
-import { Button } from '@/components/misc/Button/Button';
-import { CloseIcon } from '@/components/misc/CloseIcon';
-import { MinusIcon } from '@/components/misc/MinusIcon';
-import styles from './_.module.scss';
+import type { ComponentPropsWithoutRef } from "react";
+import { AddIcon } from "@/components/misc/AddIcon";
+import { Button } from "@/components/misc/Button/Button";
+import { CloseIcon } from "@/components/misc/CloseIcon";
+import { MinusIcon } from "@/components/misc/MinusIcon";
+import styles from "./_.module.scss";
 
-interface AmountSelectorProps extends ComponentPropsWithoutRef<'div'> {
+interface AmountSelectorProps extends ComponentPropsWithoutRef<"div"> {
   amount: number;
   onIncrement: () => void;
   onDecrement: () => void;
@@ -19,26 +19,26 @@ export const AmountSelector = ({
   ...props
 }: AmountSelectorProps) => {
   return (
-    <div className={`${styles['amount']} ${className || ''}`} {...props}>
+    <div className={`${styles["amount"]} ${className || ""}`} {...props}>
       <Button
-        className={styles['remove-button']}
+        className={styles["remove-button"]}
         onClick={onDecrement}
-        kind='ghost'
+        kind="ghost"
       >
         {amount === 1 ? (
-          <CloseIcon size={18} color='red' />
+          <CloseIcon size={18} color="red" />
         ) : (
-          <MinusIcon size={18} color='red' />
+          <MinusIcon size={18} color="red" />
         )}
       </Button>
 
-      <input type='text' pattern='/[0-9]*/' value={amount} disabled />
+      <input type="text" pattern="/[0-9]*/" value={amount} disabled />
       <Button
-        className={styles['add-button']}
+        className={styles["add-button"]}
         onClick={() => onIncrement()}
-        kind='ghost'
+        kind="ghost"
       >
-        <AddIcon size={18} color='blue' />
+        <AddIcon size={18} color="blue" />
       </Button>
     </div>
   );

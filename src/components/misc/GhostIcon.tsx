@@ -1,17 +1,22 @@
 import type { ComponentPropsWithoutRef } from "react";
 
-interface GhostIconProps extends ComponentPropsWithoutRef<'svg'> {
-  size?: number | string; 
+interface GhostIconProps extends ComponentPropsWithoutRef<"svg"> {
+  size?: number | string;
 }
 
-export const GhostIcon = ({size='24px', color="#000", className, ...props}:GhostIconProps) => {
+export const GhostIcon = ({
+  size = "24px",
+  color = "#000",
+  className,
+  ...props
+}: GhostIconProps) => {
   return (
     <svg
-      viewBox="0 0 24 24"      
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      width={size}   
-      height={size}  
+      width={size}
+      height={size}
       {...props}
     >
       <path
@@ -29,5 +34,5 @@ export const GhostIcon = ({size='24px', color="#000", className, ...props}:Ghost
         strokeLinecap="round"
       />
     </svg>
-  )
-}
+  );
+};
