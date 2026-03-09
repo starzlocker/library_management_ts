@@ -15,6 +15,17 @@ export default defineConfig([
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
     ],
+    rules: {
+      "quotes": ["error", "single", { "avoidEscape": true }],
+      "eqeqeq": [
+        "error",
+        "smart"
+      ],
+      "prefer-rest-params": "off",
+      "no-console": "error",
+      "no-shadow": "off",
+      "n/no-deprecated-api": ["warn"],
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
