@@ -5,7 +5,6 @@ import { type Dispatch, type SetStateAction } from 'react';
 import { Button } from '@/components/misc/Button/Button';
 import { BookCardSkeleton } from '../BookCard/BookCardSkeleton';
 import { GhostIcon } from '@/components/misc/GhostIcon';
-import { CloseIcon } from '@/components/misc/CloseIcon';
 import { DeadIcon } from '@/components/misc/DeadIcon';
 
 type Props = {
