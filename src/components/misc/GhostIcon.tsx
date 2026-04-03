@@ -4,12 +4,7 @@ interface GhostIconProps extends ComponentPropsWithoutRef<"svg"> {
   size?: number | string;
 }
 
-export const GhostIcon = ({
-  size = "24px",
-  color = "#000",
-  className,
-  ...props
-}: GhostIconProps) => {
+export const GhostIcon = ({ size = "24px", ...props }: GhostIconProps) => {
   return (
     <svg
       viewBox="0 0 24 24"

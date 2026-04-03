@@ -1,17 +1,7 @@
 import { useState } from "react";
 
-type fields = {
-  [key: string]: unknown;
-};
-
 export const useForm = () => {
   const [errorMap, setErrorMap] = useState({} as Record<string, Array<string>>);
-
-  const validate = (fields: fields) => {
-    for (const [k, v] of Object.entries(fields)) {
-      console.log(k, v);
-    }
-  };
 
   const isValid = () => {
     if (Object.keys(errorMap)) return false;
@@ -36,6 +26,5 @@ export const useForm = () => {
     errorMap,
     addErrorToField,
     isValid,
-    validate,
   };
 };

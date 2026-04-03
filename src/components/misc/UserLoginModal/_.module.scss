@@ -15,7 +15,7 @@
 
     &[data-error] input {
       border: 1.5px solid red;
-      transition: border .2s ease-in-out;
+      transition: border 0.2s ease-in-out;
     }
   }
 
@@ -70,7 +70,7 @@
   }
 
   .error-text {
-    padding-left: .5rem;
+    padding-left: 0.5rem;
     color: colors.$text-error;
   }
 }

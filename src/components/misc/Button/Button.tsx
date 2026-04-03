@@ -12,7 +12,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
 export const Button = ({
   children,
   onClick,
-  kind='primary',
+  kind = "primary",
   ref,
   className,
   ...props

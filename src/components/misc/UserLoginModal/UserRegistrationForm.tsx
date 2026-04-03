@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Button } from '../Button/Button';
-import styles from './_.module.scss';
-import z from 'zod';
-import { UserCreateDTOSchema, type UserCreateDTO } from '@/dtos/UserCreateDTO';
-import { useRegisterUser } from '@/hooks/useRegisterUser';
+import { useState } from "react";
+import { Button } from "../Button/Button";
+import styles from "./_.module.scss";
+import z from "zod";
+import { UserCreateDTOSchema, type UserCreateDTO } from "@/dtos/UserCreateDTO";
+import { useRegisterUser } from "@/hooks/useRegisterUser";
 type Props = {
   openLoginForm: () => void;
 };
@@ -21,11 +21,11 @@ const formFields: Array<{
   field: keyof FormErrors;
   text: string;
 }> = [
-  { id: 1, field: 'firstName', text: 'Primeiro Nome' },
-  { id: 2, field: 'lastName', text: 'Sobrenome' },
-  { id: 3, field: 'cpf', text: 'CPF' },
-  { id: 5, field: 'email', text: 'Email' },
-  { id: 6, field: 'password', text: 'Password' },
+  { id: 1, field: "firstName", text: "Primeiro Nome" },
+  { id: 2, field: "lastName", text: "Sobrenome" },
+  { id: 3, field: "cpf", text: "CPF" },
+  { id: 5, field: "email", text: "Email" },
+  { id: 6, field: "password", text: "Password" },
 ];
 
 export const UserRegistrationForm = ({ openLoginForm }: Props) => {
@@ -36,13 +36,7 @@ export const UserRegistrationForm = ({ openLoginForm }: Props) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const formDataJson = Object.fromEntries(formData.entries());
-    const result = UserCreateDTOSchema.safeParse({
-      firstName: 'teste',
-      lastName: 'teste',
-      cpf: '12345678911',
-      email: 'app.juliog@gmail.com',
-      password: 'sixteen17',
-    });
+    const result = UserCreateDTOSchema.safeParse(formDataJson);
     if (!result.success) {
       const errors = z.treeifyError(result.error);
       const output: FormErrors = {};
@@ -58,14 +52,14 @@ export const UserRegistrationForm = ({ openLoginForm }: Props) => {
   };
 
   return (
-    <section className={styles['registration-container']}>
+    <section className={styles["registration-container"]}>
       <h2>Cadastro</h2>
       <p>Preencha os campos abaixos para se cadastrar:</p>
       <form onSubmit={onSubmit}>
         {formFields.map((field) => (
           <div key={field.id}>
             <div
-              className={styles['input-field']}
+              className={styles["input-field"]}
               data-error={formErrors[field.field] ? true : undefined}
             >
               <label htmlFor={field.field}>{field.text}</label>
@@ -73,16 +67,16 @@ export const UserRegistrationForm = ({ openLoginForm }: Props) => {
             </div>
             {formErrors[field.field] &&
               formErrors[field.field]?.map((error) => (
-                <p className={styles['error-text']} key={error}>
+                <p className={styles["error-text"]} key={error}>
                   {error}
                 </p>
               ))}
           </div>
         ))}
         <Button
-          type='submit'
-          kind='primary'
-          className={styles['return-button']}
+          type="submit"
+          kind="primary"
+          className={styles["return-button"]}
           disabled={isSuccess || isLoading}
         >
           Cadastrar
@@ -92,9 +86,9 @@ export const UserRegistrationForm = ({ openLoginForm }: Props) => {
       {isError && <p>Algo deu errado ao cadastrar</p>}
       {isLoading && <p>Aguarde</p>}
       <Button
-        kind='secondary'
+        kind="secondary"
         onClick={() => openLoginForm()}
-        className={styles['return-button']}
+        className={styles["return-button"]}
       >
         Voltar
       </Button>

@@ -4,12 +4,7 @@ interface DeadIconProps extends ComponentPropsWithoutRef<"svg"> {
   size?: number | string;
 }
 
-export const DeadIcon = ({
-  size = "24px",
-  color = "#000",
-  className,
-  ...props
-}: DeadIconProps) => {
+export const DeadIcon = ({ size = "24px", ...props }: DeadIconProps) => {
   return (
     <svg
       viewBox="0 0 64 64"
