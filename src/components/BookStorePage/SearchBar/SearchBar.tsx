@@ -1,50 +1,57 @@
-import { useRef, useState } from "react";
-import { SearchIcon } from "@/components/misc/SearchIcon";
-import styles from "./SearchBar.module.scss";
-import { CloseIcon } from "@/components/misc/CloseIcon";
-import { Button } from "@/components/misc/Button/Button";
+import { useRef, useState } from 'react';
+import { SearchIcon } from '@/components/misc/SearchIcon';
+import styles from './SearchBar.module.scss';
+import { CloseIcon } from '@/components/misc/CloseIcon';
+import { Button } from '@/components/misc/Button/Button';
 
 type Props = {
-  searchTerm: string;
-  handleChange: (value: string) => void;
+    searchTerm: string;
+    handleChange: (value: string) => void;
 };
 
 export const SearchBar = ({ searchTerm, handleChange }: Props) => {
-  const [active, setActive] = useState(false);
-  const ref = useRef<HTMLInputElement | null>(null);
+    const [active, setActive] = useState(false);
+    const ref = useRef<HTMLInputElement | null>(null);
 
-  return (
-    <div
-      className={`${styles["searchbar"]} ${active ? styles["active"] : styles["inactive"]}`}
-    >
-      <input
-        id={styles["searchbar-input"]}
-        type="text"
-        ref={ref}
-        value={searchTerm}
-        onChange={(e) => handleChange(e.target.value)}
-        onBlur={(e) => {
-          if (!e.currentTarget.contains(e.relatedTarget) && !searchTerm) {
-            setActive(false);
-            ref.current?.blur();
-          }
-        }}
-      ></input>
-      <Button
-        kind="ghost"
-        id={styles["searchbar-icon"]}
-        onClick={() => {
-          if (!active && ref.current) {
-            setActive((prev) => !prev);
-            ref.current.focus();
-          } else if (active && searchTerm) {
-            handleChange("");
-            setActive(false);
-          }
-        }}
-      >
-        {searchTerm ? <CloseIcon size={16} /> : <SearchIcon size="20px" />}
-      </Button>
-    </div>
-  );
+    return (
+        <div
+            className={`${styles['searchbar']} ${active ? styles['active'] : styles['inactive']}`}
+        >
+            <input
+                id={styles['searchbar-input']}
+                type="text"
+                ref={ref}
+                value={searchTerm}
+                onChange={(e) => handleChange(e.target.value)}
+                onBlur={(e) => {
+                    if (
+                        !e.currentTarget.contains(e.relatedTarget) &&
+                        !searchTerm
+                    ) {
+                        setActive(false);
+                        ref.current?.blur();
+                    }
+                }}
+            ></input>
+            <Button
+                kind="ghost"
+                id={styles['searchbar-icon']}
+                onClick={() => {
+                    if (!active && ref.current) {
+                        setActive((prev) => !prev);
+                        ref.current.focus();
+                    } else if (active && searchTerm) {
+                        handleChange('');
+                        setActive(false);
+                    }
+                }}
+            >
+                {searchTerm ? (
+                    <CloseIcon size={16} />
+                ) : (
+                    <SearchIcon size="20px" />
+                )}
+            </Button>
+        </div>
+    );
 };

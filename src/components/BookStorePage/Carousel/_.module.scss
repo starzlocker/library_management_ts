@@ -1,88 +1,88 @@
 .carousel-container {
-  height: auto;
-  margin: auto;
-  padding: 0px 8px;
-  width: 100%;
-  max-width: 1200px;
+    height: auto;
+    margin: auto;
+    padding: 0px 8px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .slide-content {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .previous-button {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  color: black;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    color: black;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .next-button {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  color: black;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    color: black;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .slide-banner {
-  width: 100%;
+    width: 100%;
 }
 
 .sliding-in.next {
-  animation: slide-in-next 0.3s;
+    animation: slide-in-next 0.3s;
 }
 
 .sliding-out.next {
-  animation: slide-out-next 0.3s;
+    animation: slide-out-next 0.3s;
 }
 
 .sliding-in.previous {
-  animation: slide-in-previous 0.3s;
+    animation: slide-in-previous 0.3s;
 }
 
 .sliding-out.previous {
-  animation: slide-out-previous 0.3s;
+    animation: slide-out-previous 0.3s;
 }
 
 @keyframes slide-out-next {
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 @keyframes slide-out-previous {
-  from {
-    transform: translateX(0px);
-  }
-  to {
-    transform: translateX(100%);
-  }
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }
 
 @keyframes slide-in-next {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0px);
-  }
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0px);
+    }
 }
 
 @keyframes slide-in-previous {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0px);
-  }
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0px);
+    }
 }

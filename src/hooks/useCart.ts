@@ -1,76 +1,76 @@
-import { useLocalStorage } from "./useLocalStorage";
-import { useContext } from "react";
-import { CartContext } from "@/context/CartContext";
-import type { Book } from "@/models/Book";
+import { useLocalStorage } from './useLocalStorage';
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
+import type { Book } from '@/models/Book';
 
-const SHOPPING_CART = "shoppingCart";
+const SHOPPING_CART = 'shoppingCart';
 
 export const useCart = () => {
-  const { writeData } = useLocalStorage();
+    const { writeData } = useLocalStorage();
 
-  const ctx = useContext(CartContext);
+    const ctx = useContext(CartContext);
 
-  if (!ctx) {
-    throw new Error("Contexto deve ter um Provider.");
-  }
-
-  const { shoppingCart, setShoppingCart, isOpen, setIsOpen } = ctx;
-
-  function addItemsToCart(items: Book | Book[]): void {
-    const booksToAdd = Array.isArray(items) ? items : [items];
-
-    const newShoppingCart = { ...shoppingCart };
-    for (const book of booksToAdd) {
-      if (book.id in newShoppingCart) {
-        if (newShoppingCart[book.id].amount < 100)
-          newShoppingCart[book.id].amount += 1;
-      } else {
-        newShoppingCart[book.id] = { ...book, amount: 1 };
-      }
+    if (!ctx) {
+        throw new Error('Contexto deve ter um Provider.');
     }
 
-    setShoppingCart(() => {
-      writeData(SHOPPING_CART, newShoppingCart);
-      return newShoppingCart;
-    });
-  }
+    const { shoppingCart, setShoppingCart, isOpen, setIsOpen } = ctx;
 
-  const removeItemFromCart = (id: number) => {
-    const newShoppingCart = { ...shoppingCart };
+    function addItemsToCart(items: Book | Book[]): void {
+        const booksToAdd = Array.isArray(items) ? items : [items];
 
-    delete newShoppingCart[id];
+        const newShoppingCart = { ...shoppingCart };
+        for (const book of booksToAdd) {
+            if (book.id in newShoppingCart) {
+                if (newShoppingCart[book.id].amount < 100)
+                    newShoppingCart[book.id].amount += 1;
+            } else {
+                newShoppingCart[book.id] = { ...book, amount: 1 };
+            }
+        }
 
-    setShoppingCart(() => {
-      writeData(SHOPPING_CART, newShoppingCart);
-      return newShoppingCart;
-    });
-  };
+        setShoppingCart(() => {
+            writeData(SHOPPING_CART, newShoppingCart);
+            return newShoppingCart;
+        });
+    }
 
-  const decrementItem = (id: number) => {
-    const newShoppingCart = { ...shoppingCart };
-    newShoppingCart[id].amount -= 1;
-    if (!newShoppingCart[id].amount) return removeItemFromCart(id);
+    const removeItemFromCart = (id: number) => {
+        const newShoppingCart = { ...shoppingCart };
 
-    setShoppingCart(() => {
-      writeData(SHOPPING_CART, newShoppingCart);
-      return newShoppingCart;
-    });
-  };
+        delete newShoppingCart[id];
 
-  const clearCart = () => {
-    setShoppingCart(() => {
-      writeData(SHOPPING_CART, {});
-      return [];
-    });
-  };
+        setShoppingCart(() => {
+            writeData(SHOPPING_CART, newShoppingCart);
+            return newShoppingCart;
+        });
+    };
 
-  return {
-    shoppingCart,
-    isOpen,
-    setIsOpen,
-    addItemsToCart,
-    removeItemFromCart,
-    decrementItem,
-    clearCart,
-  };
+    const decrementItem = (id: number) => {
+        const newShoppingCart = { ...shoppingCart };
+        newShoppingCart[id].amount -= 1;
+        if (!newShoppingCart[id].amount) return removeItemFromCart(id);
+
+        setShoppingCart(() => {
+            writeData(SHOPPING_CART, newShoppingCart);
+            return newShoppingCart;
+        });
+    };
+
+    const clearCart = () => {
+        setShoppingCart(() => {
+            writeData(SHOPPING_CART, {});
+            return [];
+        });
+    };
+
+    return {
+        shoppingCart,
+        isOpen,
+        setIsOpen,
+        addItemsToCart,
+        removeItemFromCart,
+        decrementItem,
+        clearCart,
+    };
 };
